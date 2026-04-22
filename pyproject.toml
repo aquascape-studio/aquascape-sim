@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aquascape-sim"
+version = "0.1.0"
+description = "Planted-aquarium growth simulation, gRPC service"
+requires-python = ">=3.12"
+license = { text = "UNLICENSED" }
+authors = [{ name = "aquascape-studio" }]
+dependencies = [
+  "grpcio>=1.66",
+  "grpcio-health-checking>=1.66",
+  "grpcio-reflection>=1.66",
+  "protobuf>=5.27",
+  "numpy>=2.1",
+  "pydantic>=2.8",
+  "structlog>=24.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "grpcio-tools>=1.66",
+  "pytest>=8.3",
+  "pytest-asyncio>=0.24",
+  "ruff>=0.6",
+  "mypy>=1.11",
+  "types-protobuf",
+]
+
+[project.scripts]
+aquascape-sim = "aquascape_sim.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aquascape_sim"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

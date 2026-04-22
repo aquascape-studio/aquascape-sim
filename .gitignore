@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+src/aquascape_sim/_generated/
+*.pb2*.py
+*_pb2*.py
+*.pyi
+!src/aquascape_sim/py.typed
+.DS_Store
+.env
