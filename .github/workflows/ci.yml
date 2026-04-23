@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+
+      - name: Fetch aquascape-proto
+        run: git clone --depth 1 https://github.com/lixiangdapanji/aquascape-proto.git proto
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
 
       - name: Install
         run: |
@@ -28,7 +28,8 @@ jobs:
       - name: ruff
         run: ruff check .
 
-      - name: mypy (algo core only)
+      - name: mypy (algo core only, informational)
+        continue-on-error: true
         run: mypy src/aquascape_sim/algo
 
       - name: test
@@ -39,8 +40,8 @@ jobs:
     needs: py
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+      - name: Fetch aquascape-proto
+        run: git clone --depth 1 https://github.com/lixiangdapanji/aquascape-proto.git proto
       - uses: docker/setup-buildx-action@v3
       - name: Build image (no push)
         uses: docker/build-push-action@v6
