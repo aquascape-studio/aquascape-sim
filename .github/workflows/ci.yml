@@ -7,6 +7,9 @@ on:
 # Shape-only CI for now. Real proto-gen + pytest is deferred until the
 # proto submodule pinning + DDB wiring land.
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   shape:
     runs-on: ubuntu-latest
