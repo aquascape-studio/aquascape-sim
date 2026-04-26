@@ -50,9 +50,8 @@ jobs:
       - name: Build and push Docker image
         run: |
           IMAGE_URI=063418083301.dkr.ecr.us-east-1.amazonaws.com/aquascape-sim-dev
-          docker build -t "$IMAGE_URI:${{ github.sha }}" -t "$IMAGE_URI:latest" .
+          docker build -t "$IMAGE_URI:${{ github.sha }}" .
           docker push "$IMAGE_URI:${{ github.sha }}"
-          docker push "$IMAGE_URI:latest"
 
       - name: Update ECS task definition and deploy
         run: |
