@@ -40,7 +40,18 @@ def main() -> int:
         *[str(f) for f in files],
     ]
     print(" ".join(cmd))
-    return subprocess.call(cmd)
+    rc = subprocess.call(cmd)
+    if rc != 0:
+        return rc
+
+    # grpc_tools.protoc does not create __init__.py for intermediate directories.
+    # Add them so Python treats each level as a regular package.
+    for d in sorted(OUT.rglob("*/")):
+        init = d / "__init__.py"
+        if not init.exists():
+            init.write_text('"""Generated — do not edit."""\n')
+
+    return 0
 
 
 if __name__ == "__main__":

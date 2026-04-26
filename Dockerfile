@@ -18,7 +18,7 @@ FROM base AS runtime
 RUN useradd --system --uid 65532 --shell /usr/sbin/nologin app
 WORKDIR /app
 COPY --from=builder /wheels /wheels
-# Stage generated protos for copying into installed package location
+# Stage generated protos; the wheel may exclude them due to .gitignore
 COPY --from=builder /build/src/aquascape_sim/_generated /tmp/_generated
 RUN pip install --no-cache-dir /wheels/*.whl \
  && pip install --no-cache-dir "grpcio>=1.66" "grpcio-health-checking>=1.66" \
@@ -26,8 +26,9 @@ RUN pip install --no-cache-dir /wheels/*.whl \
  && rm -rf /wheels \
  && python -c "import aquascape_sim, os, shutil; \
                dst=os.path.join(os.path.dirname(aquascape_sim.__file__),'_generated'); \
-               shutil.copytree('/tmp/_generated', dst); \
+               shutil.copytree('/tmp/_generated', dst, dirs_exist_ok=True); \
                print('protos installed to', dst)" \
+ && python -c "from aquascape_sim._generated.aquascape.v1 import sim_pb2; print('proto import OK')" \
  && rm -rf /tmp/_generated
 
 USER app
