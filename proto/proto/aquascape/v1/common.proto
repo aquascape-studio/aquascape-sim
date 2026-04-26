@@ -1,0 +1,50 @@
+// Shared scalars used by every other file in this package.
+// Keep this file minimal — it is imported everywhere, so cycles are expensive.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+// Stable id for any persisted entity. Client-generated as ULID.
+message EntityId {
+  string value = 1;
+}
+
+// Centimetres. We use a message (not a bare float) so that zero is
+// distinguishable from "unset" on the wire.
+message LengthCm {
+  double value = 1;
+}
+
+// Degrees Celsius.
+message TemperatureC {
+  double value = 1;
+}
+
+// Micromoles of photons per square metre per second — the standard
+// aquatic-botany unit for photosynthetically active radiation.
+message PAR {
+  double value = 1;  // μmol·m⁻²·s⁻¹
+}
+
+// Milligrams per litre — used for CO2, NO3, PO4, etc.
+message Concentration {
+  double value = 1;  // mg/L
+}
+
+// RFC 3339 timestamp as a string. Avoids the google/protobuf dependency
+// for the Phase-1 repos.
+message Timestamp {
+  string rfc3339 = 1;
+}
+
+// Validation envelope returned inside RPC errors. Keyed by field path.
+message FieldError {
+  string path = 1;   // "tank.size_cm.x"
+  string message = 2;
+}
+
+// Opaque cursor for list pagination. Servers define the encoding.
+message PageCursor {
+  string value = 1;
+}

@@ -1,0 +1,57 @@
+// PlantService — simplified plant catalog for client consumption.
+// Backed by static data in aquascape-api for Round 2; will switch to
+// DynamoDB once the botany pipeline is wired up.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+// PlantType classifies a plant's ecological role in the aquascape.
+enum PlantType {
+  PLANT_TYPE_UNSPECIFIED = 0;
+  PLANT_TYPE_STEM = 1;
+  PLANT_TYPE_ROSETTE = 2;
+  PLANT_TYPE_CARPETING = 3;
+  PLANT_TYPE_MOSS = 4;
+  PLANT_TYPE_EPIPHYTE = 5;
+  PLANT_TYPE_FLOATING = 6;
+}
+
+// PlantDifficulty is a 1–5 scale where 1 is easiest and 5 is hardest.
+enum PlantDifficulty {
+  PLANT_DIFFICULTY_UNSPECIFIED = 0;
+  PLANT_DIFFICULTY_1 = 1;
+  PLANT_DIFFICULTY_2 = 2;
+  PLANT_DIFFICULTY_3 = 3;
+  PLANT_DIFFICULTY_4 = 4;
+  PLANT_DIFFICULTY_5 = 5;
+}
+
+// Plant is the simplified representation served to web/mobile clients.
+message Plant {
+  string id = 1;                       // kebab-case slug, e.g. "anubias-barteri"
+  string scientific_name = 2;
+  string common_name = 3;
+  PlantType type = 4;
+  PlantDifficulty difficulty = 5;
+  // Minimum PAR (μmol·m⁻²·s⁻¹) the plant needs to thrive.
+  double light_requirement_par = 6;
+  // Whether this plant requires injected CO2 to grow well.
+  bool co2_required = 7;
+}
+
+message ListPlantsRequest {
+  // Optional filter: only return plants of this type.
+  PlantType filter_type = 1;
+  // Optional filter: only return plants with difficulty <= this value.
+  PlantDifficulty filter_max_difficulty = 2;
+}
+
+message ListPlantsResponse {
+  repeated Plant plants = 1;
+}
+
+// PlantService serves a read-only catalog of aquatic plants.
+service PlantService {
+  rpc ListPlants(ListPlantsRequest) returns (ListPlantsResponse);
+}

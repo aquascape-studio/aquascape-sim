@@ -1,0 +1,65 @@
+// Public API service. Owned by aquascape-api (Rust / tonic).
+// This is the only service the web + mobile clients call.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+import "aquascape/v1/common.proto";
+import "aquascape/v1/botany.proto";
+import "aquascape/v1/plant.proto";
+import "aquascape/v1/scape.proto";
+import "aquascape/v1/sim.proto";
+
+message CreateScapeRequest {
+  Scape scape = 1;  // id + timestamps assigned by server
+}
+message CreateScapeResponse {
+  Scape scape = 1;
+}
+
+message GetScapeRequest {
+  EntityId id = 1;
+}
+message GetScapeResponse {
+  Scape scape = 1;
+}
+
+message UpdateScapeRequest {
+  Scape scape = 1;                   // full replace, server validates owner
+  repeated string update_mask = 2;   // optional field-mask paths
+}
+message UpdateScapeResponse {
+  Scape scape = 1;
+}
+
+message ListScapesRequest {
+  int32 page_size = 1;
+  PageCursor page_token = 2;
+}
+message ListScapesResponse {
+  repeated Scape scapes = 1;
+  PageCursor next_page_token = 2;
+}
+
+message SimulateScapeRequest {
+  EntityId scape_id = 1;
+  double duration_days = 2;
+}
+// Streams frames directly from the sim service back to the client.
+// The API proxies with auth enforcement and rate limiting.
+
+service AquascapeApi {
+  // Botany — read-only catalog.
+  rpc GetSpecies(GetSpeciesRequest) returns (GetSpeciesResponse);
+  rpc ListSpecies(ListSpeciesRequest) returns (ListSpeciesResponse);
+
+  // Scapes — authenticated CRUD.
+  rpc CreateScape(CreateScapeRequest) returns (CreateScapeResponse);
+  rpc GetScape(GetScapeRequest) returns (GetScapeResponse);
+  rpc UpdateScape(UpdateScapeRequest) returns (UpdateScapeResponse);
+  rpc ListScapes(ListScapesRequest) returns (ListScapesResponse);
+
+  // Simulation — proxies to aquascape-sim, authenticated.
+  rpc SimulateScape(SimulateScapeRequest) returns (stream Frame);
+}

@@ -1,0 +1,50 @@
+// Growth simulation service. Owned by aquascape-sim (Python).
+// Called server-to-server by aquascape-api — never exposed to browsers directly.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+import "aquascape/v1/common.proto";
+import "aquascape/v1/scape.proto";
+
+message SimRequest {
+  Scape initial_state = 1;
+  double duration_days = 2;        // how far forward to simulate
+  double timestep_hours = 3;       // integrator step (typically 1.0)
+  uint64 seed = 4;                 // deterministic stochastic terms
+}
+
+message PlantFrame {
+  string plant_id = 1;
+  double height_cm = 2;
+  double biomass_mg = 3;
+  double leaf_integrity = 4;       // 0..1; drops with K deficiency etc.
+  repeated string limiting_factors = 5;  // e.g. ["PAR", "CO2"]
+}
+
+message Frame {
+  double t_days = 1;
+  WaterParams water = 2;           // drifts over time from consumption
+  repeated PlantFrame plants = 3;
+}
+
+message SimSummary {
+  repeated string species_ranking = 1;   // ordered by final biomass
+  double stability_score = 2;            // 0..1
+  repeated FieldError warnings = 3;
+}
+
+message SimResponse {
+  repeated Frame frames = 1;
+  SimSummary summary = 2;
+}
+
+service SimService {
+  // Streams frames back so the client can show progressive growth rather
+  // than waiting for the whole sim to finish.
+  rpc Simulate(SimRequest) returns (stream Frame);
+
+  // Final summary after the stream completes.
+  rpc GetSummary(SimRequest) returns (SimSummary);
+}

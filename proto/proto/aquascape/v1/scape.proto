@@ -1,0 +1,74 @@
+// A "scape" is a single planted aquarium composition owned by a user.
+// This file defines both the persisted shape and the mutations on it.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+import "aquascape/v1/common.proto";
+
+message TankSizeCm {
+  double x = 1;  // width
+  double y = 2;  // height
+  double z = 3;  // depth
+}
+
+message Vec3Cm {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+enum Substrate {
+  SUBSTRATE_UNSPECIFIED = 0;
+  SUBSTRATE_AQUASOIL = 1;
+  SUBSTRATE_INERT_SAND = 2;
+  SUBSTRATE_GRAVEL = 3;
+}
+
+message RockPlacement {
+  string id = 1;
+  Vec3Cm position = 2;
+  double rotation_y_rad = 3;
+  double radius_cm = 4;
+  uint32 seed = 5;
+}
+
+message PlantPlacement {
+  string id = 1;
+  string species_id = 2;           // matches Species.id
+  Vec3Cm position = 3;
+  double rotation_y_rad = 4;
+  double height_cm = 5;            // target mature height
+  uint32 count = 6;                // number of stems/plugs at this spot
+}
+
+message WaterParams {
+  double temperature_c = 1;
+  double ph = 2;
+  double gh_dkh = 3;
+  double co2_mg_l = 4;
+  double no3_mg_l = 5;
+  double po4_mg_l = 6;
+  double k_mg_l = 7;
+  double fe_mg_l = 8;
+}
+
+message LightSchedule {
+  double photoperiod_hours = 1;    // typically 6–10 for planted tanks
+  double peak_par_umol_m2_s = 2;   // peak PAR at substrate depth
+}
+
+message Scape {
+  EntityId id = 1;
+  string owner_user_id = 2;
+  string name = 3;
+  TankSizeCm size_cm = 4;
+  Substrate substrate = 5;
+  repeated RockPlacement hardscape = 6;
+  repeated PlantPlacement plants = 7;
+  WaterParams water = 8;
+  LightSchedule light = 9;
+  Timestamp created_at = 10;
+  Timestamp updated_at = 11;
+}

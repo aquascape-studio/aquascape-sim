@@ -1,0 +1,76 @@
+// Plant species reference data + cultivation envelopes.
+// Populated from aquascape-botany's plants.json; served read-only by the API.
+
+syntax = "proto3";
+
+package aquascape.v1;
+
+import "aquascape/v1/common.proto";
+
+enum GrowthForm {
+  GROWTH_FORM_UNSPECIFIED = 0;
+  GROWTH_FORM_STEM = 1;
+  GROWTH_FORM_ROSETTE = 2;
+  GROWTH_FORM_CARPETING = 3;
+  GROWTH_FORM_MOSS = 4;
+  GROWTH_FORM_EPIPHYTE = 5;
+  GROWTH_FORM_FLOATING = 6;
+}
+
+enum Difficulty {
+  DIFFICULTY_UNSPECIFIED = 0;
+  DIFFICULTY_1 = 1;  // easiest
+  DIFFICULTY_5 = 5;  // hardest
+}
+
+// A closed interval [min, max]. Used for temperature, pH, hardness, etc.
+message Range {
+  double min = 1;
+  double max = 2;
+}
+
+// Cultivation envelope — the range a species will tolerate. Outside these
+// bounds the sim assigns stress. Mirrors the fields in plants.json.
+message Envelope {
+  Range temperature_c = 1;
+  Range ph = 2;
+  Range gh_dkh = 3;          // general hardness, °dGH
+  Range par_umol_m2_s = 4;   // light
+  Range co2_mg_l = 5;
+  Range no3_mg_l = 6;
+  Range po4_mg_l = 7;
+  Range k_mg_l = 8;
+  Range fe_mg_l = 9;
+}
+
+message Species {
+  string id = 1;                 // kebab-case slug, e.g. "anubias-barteri"
+  string scientific_name = 2;
+  string common_name_en = 3;
+  string common_name_zh = 4;
+  GrowthForm growth_form = 5;
+  Difficulty difficulty = 6;
+  Envelope envelope = 7;
+  repeated string citation_keys = 8;   // BibTeX keys in aquascape-botany/citations.bib
+  string notes = 9;
+}
+
+message GetSpeciesRequest {
+  string id = 1;
+}
+
+message GetSpeciesResponse {
+  Species species = 1;
+}
+
+message ListSpeciesRequest {
+  int32 page_size = 1;
+  PageCursor page_token = 2;
+  GrowthForm filter_growth_form = 3;  // UNSPECIFIED = no filter
+  Difficulty filter_max_difficulty = 4;
+}
+
+message ListSpeciesResponse {
+  repeated Species species = 1;
+  PageCursor next_page_token = 2;
+}
