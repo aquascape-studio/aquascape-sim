@@ -28,7 +28,7 @@ RUN pip install --no-cache-dir /wheels/*.whl \
                dst=os.path.join(os.path.dirname(aquascape_sim.__file__),'_generated'); \
                shutil.copytree('/tmp/_generated', dst, dirs_exist_ok=True); \
                print('protos installed to', dst)" \
- && python -c "from aquascape_sim._generated.aquascape.v1 import sim_pb2; print('proto import OK')" \
+ && python -c "import sys,aquascape_sim,os; sys.path.insert(0,os.path.join(os.path.dirname(aquascape_sim.__file__),'_generated')); from aquascape.v1 import sim_pb2; print('proto import OK')" \
  && rm -rf /tmp/_generated
 
 USER app

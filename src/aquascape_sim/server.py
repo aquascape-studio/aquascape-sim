@@ -30,7 +30,16 @@ def _setup_logging() -> None:
 
 async def _serve_async(port: int) -> None:
     try:
-        from aquascape_sim._generated.aquascape.v1 import sim_pb2, sim_pb2_grpc  # type: ignore
+        import sys as _sys
+        import aquascape_sim as _pkg
+        _gen_dir = os.path.join(os.path.dirname(_pkg.__file__), "_generated")
+        if not os.path.isdir(_gen_dir):
+            raise ImportError(f"_generated dir not found at {_gen_dir}")
+        # pb2 files use absolute imports (e.g. `from aquascape.v1 import …`);
+        # adding _generated to sys.path makes those resolvable.
+        if _gen_dir not in _sys.path:
+            _sys.path.insert(0, _gen_dir)
+        from aquascape.v1 import sim_pb2, sim_pb2_grpc  # type: ignore
     except ImportError as e:
         raise RuntimeError(
             "Generated protos not found. Run `python scripts/generate_proto.py` first."
