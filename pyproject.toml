@@ -32,6 +32,9 @@ dev = [
 [project.scripts]
 aquascape-sim = "aquascape_sim.server:main"
 
+[tool.hatch.build]
+artifacts = ["src/aquascape_sim/_generated/**"]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/aquascape_sim"]
 

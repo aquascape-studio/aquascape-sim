@@ -18,7 +18,6 @@ FROM base AS runtime
 RUN useradd --system --uid 65532 --shell /usr/sbin/nologin app
 WORKDIR /app
 COPY --from=builder /wheels /wheels
-COPY --from=builder /build/src/aquascape_sim/_generated /app/_generated
 RUN pip install --no-cache-dir /wheels/*.whl \
  && pip install --no-cache-dir "grpcio>=1.66" "grpcio-health-checking>=1.66" \
       "grpcio-reflection>=1.66" "protobuf>=5.27" "numpy>=2.1" "structlog>=24.4" \
