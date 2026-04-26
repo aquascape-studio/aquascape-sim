@@ -22,6 +22,9 @@ RUN pip install --no-cache-dir /wheels/*.whl \
  && pip install --no-cache-dir "grpcio>=1.66" "grpcio-health-checking>=1.66" \
       "grpcio-reflection>=1.66" "protobuf>=5.27" "numpy>=2.1" "structlog>=24.4" \
  && rm -rf /wheels
+# Hatchling excludes gitignored files from wheels; copy generated protos explicitly.
+COPY --from=builder /build/src/aquascape_sim/_generated \
+     /usr/local/lib/python3.12/site-packages/aquascape_sim/_generated
 
 USER app
 EXPOSE 50052
