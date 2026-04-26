@@ -7,10 +7,19 @@ lives in algo/tick.py.
 from __future__ import annotations
 
 import logging
+import os
+import sys
 from collections.abc import AsyncIterator
 from typing import Any
 
+import aquascape_sim
 from aquascape_sim.algo.tick import TickState, run_tick
+
+# pb2 files use absolute imports (from aquascape.v1 import …).
+# Add _generated to sys.path so those imports resolve.
+_gen_dir = os.path.join(os.path.dirname(aquascape_sim.__file__), "_generated")
+if os.path.isdir(_gen_dir) and _gen_dir not in sys.path:
+    sys.path.insert(0, _gen_dir)
 
 log = logging.getLogger(__name__)
 
@@ -24,12 +33,7 @@ class SimServicer:
     """
 
     async def Simulate(self, request: Any, context: Any) -> AsyncIterator[Any]:
-        # Imports here so unit tests on algo/ don't pull in generated code.
-        import sys as _sys, os as _os, aquascape_sim as _pkg  # noqa: E401
-_gen = _os.path.join(_os.path.dirname(_pkg.__file__), "_generated")
-if _gen not in _sys.path:
-    _sys.path.insert(0, _gen)
-from aquascape.v1 import sim_pb2  # type: ignore
+        from aquascape.v1 import sim_pb2  # type: ignore
 
         horizon_days = max(1, min(int(getattr(request, "horizon_days", 30)), 365))
         log.info("sim start horizon=%d", horizon_days)
@@ -52,10 +56,6 @@ from aquascape.v1 import sim_pb2  # type: ignore
         log.info("sim done")
 
     async def GetSummary(self, request: Any, context: Any) -> Any:
-        import sys as _sys, os as _os, aquascape_sim as _pkg  # noqa: E401
-_gen = _os.path.join(_os.path.dirname(_pkg.__file__), "_generated")
-if _gen not in _sys.path:
-    _sys.path.insert(0, _gen)
-from aquascape.v1 import sim_pb2  # type: ignore
+        from aquascape.v1 import sim_pb2  # type: ignore
 
         return sim_pb2.SimSummary()
