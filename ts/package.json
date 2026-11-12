@@ -11,13 +11,17 @@
     "./worker": "./src/worker.ts",
     "./contract": "./src/contract.ts"
   },
-  "files": ["src", "README.md"],
+  "files": [
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
     "parity:gen": "python3 scripts/gen_parity.py"
   },
   "devDependencies": {
+    "@types/node": "22",
     "typescript": "5.6.3",
     "vitest": "2.1.9"
   },

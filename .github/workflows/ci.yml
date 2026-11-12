@@ -25,9 +25,37 @@ jobs:
       - name: Run pytest
         run: pytest
 
+  ts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ts
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+        env:
+          # shared runners are slower than a dev laptop; local budget stays 200 ms
+          SIM_PERF_MARGIN: "3"
+
   deploy:
     if: github.ref == 'refs/heads/main'
-    needs: build
+    needs: [build, ts]
     runs-on: ubuntu-latest
     environment: dev
     permissions:
