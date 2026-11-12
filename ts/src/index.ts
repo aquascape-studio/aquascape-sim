@@ -50,11 +50,13 @@ export interface WorkerHandlerOptions {
 }
 
 /**
- * Implements the WorkerRequest/WorkerResponse protocol.
+ * Implements the WorkerRequest/WorkerResponse protocol (contract 1.1).
  *
  * `run` streams one `frame` message per day, then `done` (with the full result).
- * `cancel` stops a running request at the next slice boundary; the handler then
- * posts `{ type: "error", message: "cancelled" }` so callers can settle promises.
+ * `cancel` for an in-flight run immediately posts exactly one
+ * `{ type: "cancelled", requestId }`; the run stops at its next slice boundary
+ * and posts nothing further for that id. Cancelling an unknown or already
+ * finished id (or cancelling twice) posts nothing.
  * Exceptions are reported as `error`. The returned function resolves when the
  * request has been fully handled (useful for tests).
  */
@@ -68,7 +70,11 @@ export function createWorkerHandler(
 
   return async (req: WorkerRequest): Promise<void> => {
     if (req.type === "cancel") {
-      if (running.has(req.requestId)) cancelled.add(req.requestId);
+      const id = req.requestId;
+      if (running.has(id) && !cancelled.has(id)) {
+        cancelled.add(id);
+        postMessage({ type: "cancelled", requestId: id });
+      }
       return;
     }
     if (req.type !== "run") return;
@@ -79,10 +85,7 @@ export function createWorkerHandler(
       const it = simulateIter(req.input);
       let sliceStart = now();
       for (;;) {
-        if (cancelled.has(requestId)) {
-          postMessage({ type: "error", requestId, message: "cancelled" });
-          return;
-        }
+        if (cancelled.has(requestId)) return;
         const r = it.next();
         if (r.done) {
           postMessage({ type: "done", requestId, result: r.value, elapsedMs: now() - t0 });
@@ -95,7 +98,9 @@ export function createWorkerHandler(
         }
       }
     } catch (e) {
-      postMessage({ type: "error", requestId, message: e instanceof Error ? e.message : String(e) });
+      if (!cancelled.has(requestId)) {
+        postMessage({ type: "error", requestId, message: e instanceof Error ? e.message : String(e) });
+      }
     } finally {
       running.delete(requestId);
       cancelled.delete(requestId);

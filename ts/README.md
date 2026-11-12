@@ -31,7 +31,8 @@ const worker = new Worker(new URL("./sim-core/worker", import.meta.url), { type:
 worker.postMessage({ type: "run", requestId: 1, input });
 // ← { type: "frame", requestId, frame } × (days + 1), then { type: "done", requestId, result, elapsedMs }
 worker.postMessage({ type: "cancel", requestId: 1 });
-// ← { type: "error", requestId, message: "cancelled" }   (errors use the same message type)
+// ← exactly one { type: "cancelled", requestId } if the run was still in flight, then nothing
+//   more for that id; cancelling an unknown/finished id posts nothing.
 ```
 
 `createWorkerHandler(postMessage, { sliceMs })` implements the protocol for any
@@ -67,10 +68,11 @@ spread disc (at least the cell under it). Per cell, plants are ordered by top
 height (`y + heightCm`; floating plants sit at the surface) and each receives
 `parAtDepth(surface, H − top) · exp(−K_SHADE · Σ load above)` where load is
 `biomass / footprint area` (g/cm², `K_SHADE = 2.5`, ×2 floating, ×0.8 carpet, ×0.6 moss).
-`parAtPlant` is the footprint mean (lights-on PAR, not 24 h averaged).
+`parAtPlant` is the footprint mean (lights-on PAR, not 24 h averaged);
+`parDailyMean = parAtPlant · photoperiodH / 24` (contract 1.1).
 
 **Fitness.** Botany `{min, opt, max}` envelopes become trapezoid `Axis`es with a
-plateau of ±30 % around `opt` (light: −30 % / +70 %). Fitness = `compat` (geometric
+plateau of ±30 % around `opt` (light: −30 % / +70 % — note: the light upper plateau deviates from contract `ENVELOPE_RULE`, kept as-is pending orchestrator decision). Fitness = `compat` (geometric
 mean) over light, co2, temperatureC, pH, gh, kh.
 
 **Growth.** Carrying capacity `bMax = 0.02 g/cm³ · hTarget · π(spread/2)²` with
@@ -95,15 +97,20 @@ hardscape, mosses and floaters have no substrate access. Quota score is
 Aquasoil (`reserve` = 1) holds per-cm² reserves that release ~1 %/day of the fresh
 amount into the water column (slowing below 30 % remaining) plus root uptake,
 reaching ~95–97 % depletion by day 120. Inert substrate has no reserve.
+`Frame.substrate.reserve[iz * nx + ix]` (contract 1.1) is, per light-grid cell, the
+mean over NO₃/PO₄/K/Fe of remaining ÷ day-0 reserve (0..1; all 0 for inert).
 
 **Limiting.** Factors with score < 0.8 among light, co2, temperature, pH, gh, kh,
 no3, po4, k, fe, space (crowding by other plants sharing footprint cells), most
 limiting first.
 
-**Events** (first occurrence per plant & type, in that day's frame): `shaded`
-(parAtPlant < species light.min for 3 consecutive days), `overtaken` (a plant that
-was not above it the previous day now shades it; `detail` = its id; not raised on
-day 0), `deficiency` (`detail` = most deficient nutrient), `melt` (health < 0.3),
+**Events** (contract 1.1; emitted in the frame of the day they are raised). Each
+key (plant, type, detail) is raised when its condition first holds, and again only
+after ≥ 7 consecutive days without it; `melt` is raised at most once per plant.
+`shaded` (parAtPlant < species light.min for 3 consecutive days), `overtaken`
+(`detail` = id of a plant whose top is above this one in a shared cell; plants
+already above it on day 0 don't count), `deficiency` (`detail` = nutrient, one
+event per deficient nutrient, tissue quota < 0.5), `melt` (health < 0.3),
 `trimNeeded` (top ≥ 0.9 × tank height, or stem height ≥ species maxHeightCm).
 
 **Determinism.** No `Math.random`, no time-dependence: same input ⇒ bit-identical

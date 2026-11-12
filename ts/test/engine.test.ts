@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  CONTRACT_VERSION, Engine, createPrng, createWorkerHandler, simulate, simulateIter,
+  CONTRACT_VERSION, ENVELOPE_RULE, Engine, envelopeAxis, createPrng, createWorkerHandler, simulate, simulateIter,
   type SimInput, type WorkerResponse, type SimEvent,
 } from "../src";
 import { K_WATER } from "../src/algo";
@@ -56,6 +56,7 @@ describe("simulate — shape & determinism", () => {
       expect(r2.frames[i].plants).toEqual(r.frames[i].plants);
       expect(r2.frames[i].water).toEqual(r.frames[i].water);
       expect(r2.frames[i].events).toEqual(r.frames[i].events);
+      expect(Buffer.from(r2.frames[i].substrate!.reserve.buffer).equals(Buffer.from(r.frames[i].substrate!.reserve.buffer))).toBe(true);
     }
     const r3 = simulate({ ...input, seed: 7 });
     expect(r3.frames[30].plants[0].biomassG).not.toBe(r.frames[30].plants[0].biomassG);
@@ -204,15 +205,20 @@ describe("limiting & events", () => {
     for (const f of ["co2", "temperature", "gh", "kh"]) expect(lim).toContain(f);
   });
 
-  it("events are raised at most once per plant/type and appear in that day's frame", () => {
+  it("events follow 1.1 semantics (7-day re-arm per plant/type/detail, melt once) and appear in that day's frame", () => {
     const r = simulate(typicalScape({ days: 130, substrate: { type: "inert", reserve: 1 } }));
-    const seen = new Set<string>();
+    const lastDay = new Map<string, number>();
     const all: SimEvent[] = [];
     for (const f of r.frames) for (const e of f.events) {
       expect(e.day).toBe(f.day);
-      const key = `${e.plantId}/${e.type}`;
-      expect(seen.has(key)).toBe(false);
-      seen.add(key);
+      const key = `${e.plantId}/${e.type}/${e.detail ?? ""}`;
+      const prev = lastDay.get(key);
+      if (prev !== undefined) {
+        expect(e.type).not.toBe("melt");
+        // re-raise needs ≥ 7 condition-free days in between ⇒ gap ≥ 8
+        expect(e.day - prev).toBeGreaterThanOrEqual(8);
+      }
+      lastDay.set(key, e.day);
       all.push(e);
     }
     const types = new Set(all.map((e) => e.type));
@@ -282,17 +288,47 @@ describe("worker protocol", () => {
     }
   });
 
-  it("supports cancel", async () => {
+  it("cancel of an in-flight run ⇒ exactly one cancelled, nothing after it", async () => {
     const msgs: WorkerResponse[] = [];
     const handle = createWorkerHandler((m) => msgs.push(m), { sliceMs: 0 });
     const run = handle({ type: "run", requestId: 2, input: typicalScape({ days: 200 }) });
     await new Promise((r) => setTimeout(r, 0));
     await handle({ type: "cancel", requestId: 2 });
+    await handle({ type: "cancel", requestId: 2 }); // duplicate cancel is a no-op
     await run;
-    expect(msgs.some((m) => m.type === "done")).toBe(false);
-    const last = msgs[msgs.length - 1];
-    expect(last).toMatchObject({ type: "error", requestId: 2, message: "cancelled" });
-    expect(msgs.filter((m) => m.type === "frame").length).toBeLessThan(201);
+    await new Promise((r) => setTimeout(r, 5));
+    const mine = msgs.filter((m) => m.requestId === 2);
+    const idx = mine.findIndex((m) => m.type === "cancelled");
+    expect(idx).toBeGreaterThan(0); // some frames were streamed first
+    expect(mine.filter((m) => m.type === "cancelled")).toHaveLength(1);
+    expect(mine.slice(idx + 1)).toEqual([]);
+    expect(mine.some((m) => m.type === "done" || m.type === "error")).toBe(false);
+    expect(mine.filter((m) => m.type === "frame").length).toBeLessThan(201);
+  });
+
+  it("cancel of an unknown or finished id posts nothing", async () => {
+    const msgs: WorkerResponse[] = [];
+    const handle = createWorkerHandler((m) => msgs.push(m));
+    await handle({ type: "cancel", requestId: 99 });
+    expect(msgs).toEqual([]);
+    await handle({ type: "run", requestId: 4, input: typicalScape({ days: 2 }) });
+    const n = msgs.length;
+    expect(msgs[n - 1].type).toBe("done");
+    await handle({ type: "cancel", requestId: 4 });
+    expect(msgs).toHaveLength(n);
+  });
+
+  it("cancelling one run does not affect another", async () => {
+    const msgs: WorkerResponse[] = [];
+    const handle = createWorkerHandler((m) => msgs.push(m), { sliceMs: 0 });
+    const a = handle({ type: "run", requestId: 5, input: typicalScape({ days: 40 }) });
+    const b = handle({ type: "run", requestId: 6, input: typicalScape({ days: 40 }) });
+    await new Promise((r) => setTimeout(r, 0));
+    await handle({ type: "cancel", requestId: 5 });
+    await Promise.all([a, b]);
+    expect(msgs.filter((m) => m.requestId === 6 && m.type === "frame")).toHaveLength(41);
+    expect(msgs.filter((m) => m.requestId === 6).at(-1)?.type).toBe("done");
+    expect(msgs.filter((m) => m.requestId === 5).at(-1)?.type).toBe("cancelled");
   });
 
   it("reports errors", async () => {
@@ -300,5 +336,115 @@ describe("worker protocol", () => {
     const handle = createWorkerHandler((m) => msgs.push(m));
     await handle({ type: "run", requestId: 3, input: { ...typicalScape({ days: 1 }), species: {} } });
     expect(msgs).toEqual([{ type: "error", requestId: 3, message: expect.stringMatching(/unknown species/) }]);
+  });
+});
+
+describe("contract 1.1", () => {
+  it("parDailyMean = parAtPlant × photoperiodH / 24 on every PlantFrame", () => {
+    for (const photoperiodH of [6, 8, 10]) {
+      const base = typicalScape({ days: 15 });
+      const r = simulate({ ...base, light: { ...base.light, photoperiodH } });
+      for (const f of r.frames) for (const p of f.plants) {
+        expect(p.parDailyMean).toBeDefined();
+        expect(p.parDailyMean!).toBeCloseTo((p.parAtPlant * photoperiodH) / 24, 12);
+      }
+    }
+  });
+
+  it("substrate grid: same dims as light, fresh aquasoil starts at 1", () => {
+    const r = simulate(typicalScape({ days: 3 }));
+    for (const f of r.frames) {
+      expect(f.substrate).toBeDefined();
+      expect(f.substrate!.nx).toBe(f.light.nx);
+      expect(f.substrate!.nz).toBe(f.light.nz);
+      expect(f.substrate!.reserve).toBeInstanceOf(Float32Array);
+      expect(f.substrate!.reserve.length).toBe(f.light.nx * f.light.nz);
+    }
+    for (const v of r.frames[0].substrate!.reserve) expect(v).toBe(1);
+  });
+
+  it("substrate reserve: monotonic non-increasing without dosing, ~95% depleted near day 120", () => {
+    const r = simulate(typicalScape({ days: 120 }));
+    for (let d = 1; d < r.frames.length; d++) {
+      const a = r.frames[d - 1].substrate!.reserve;
+      const b = r.frames[d].substrate!.reserve;
+      for (let c = 0; c < a.length; c++) {
+        expect(b[c]).toBeLessThanOrEqual(a[c]);
+        expect(b[c]).toBeGreaterThanOrEqual(0);
+      }
+    }
+    const last = r.frames[120].substrate!.reserve;
+    let mean = 0;
+    for (const v of last) mean += v;
+    mean /= last.length;
+    console.log(`[substrate] mean reserve remaining at day 120: ${(mean * 100).toFixed(2)}%`);
+    expect(1 - mean).toBeGreaterThan(0.9);
+    expect(1 - mean).toBeLessThan(0.995);
+  });
+
+  it("substrate reserve: all zeros for inert", () => {
+    const r = simulate(typicalScape({ days: 10, substrate: { type: "inert", reserve: 1 } }));
+    for (const f of r.frames) for (const v of f.substrate!.reserve) expect(v).toBe(0);
+  });
+
+  it("deficiency de-dupe: no (plant, nutrient) re-raised within 7 days", () => {
+    const r = simulate(typicalScape({ days: 150, substrate: { type: "inert", reserve: 1 } }));
+    const last = new Map<string, number>();
+    let n = 0;
+    for (const f of r.frames) for (const e of f.events) {
+      if (e.type !== "deficiency") continue;
+      n++;
+      const key = `${e.plantId}/${e.detail}`;
+      const prev = last.get(key);
+      if (prev !== undefined) expect(e.day - prev).toBeGreaterThan(7);
+      last.set(key, e.day);
+    }
+    expect(n).toBeGreaterThan(0);
+  });
+
+  it("deficiency re-arms after ≥ 7 deficiency-free days (Engine-level)", () => {
+    const input: SimInput = {
+      ...typicalScape({ days: 0 }),
+      plants: [{ id: "r", speciesId: "rotala-macrandra", x: 0, z: 0, y: 0, portions: 1 }],
+    };
+    const e = new Engine(input);
+    e.start();
+    const p = (e as unknown as { plants: { q: number[] }[] }).plants[0];
+    const day = (q: number): SimEvent[] => {
+      e.day += 1;
+      p.q[3] = q; // fe
+      return (e as unknown as { events(): SimEvent[] }).events().filter((x) => x.type === "deficiency" && x.detail === "fe");
+    };
+    expect(day(0.1)).toHaveLength(1);
+    expect(day(0.1)).toHaveLength(0);
+    for (let i = 0; i < 6; i++) expect(day(1)).toHaveLength(0);
+    expect(day(0.1)).toHaveLength(0); // only 6 free days
+    for (let i = 0; i < 7; i++) expect(day(1)).toHaveLength(0);
+    expect(day(0.1)).toHaveLength(1); // 7 free days ⇒ re-armed
+  });
+
+  it("envelopeAxis matches ENVELOPE_RULE (plateau 0.3)", () => {
+    expect(ENVELOPE_RULE).toBe("trapezoid-plateau-0.3");
+    const cases = [
+      { min: 10, opt: 40, max: 120 },
+      { min: 6.0, opt: 6.8, max: 7.5 },
+      { min: 0, opt: 25, max: 30 },
+    ];
+    for (const e of cases) {
+      const optMin = e.opt - 0.3 * (e.opt - e.min);
+      const optMax = e.opt + 0.3 * (e.max - e.opt);
+      const ax = envelopeAxis(e);
+      expect(ax.score(e.min)).toBe(0);
+      expect(ax.score(e.max)).toBe(0);
+      expect(ax.score(e.min - 1)).toBe(0);
+      expect(ax.score(e.max + 1)).toBe(0);
+      expect(ax.score(optMin)).toBeCloseTo(1, 12);
+      expect(ax.score(optMax)).toBeCloseTo(1, 12);
+      expect(ax.score(e.opt)).toBe(1);
+      expect(ax.score((e.min + optMin) / 2)).toBeCloseTo(0.5, 12);
+      expect(ax.score((optMax + e.max) / 2)).toBeCloseTo(0.5, 12);
+      expect(ax.score(optMin - 0.01 * (optMin - e.min))).toBeLessThan(1);
+      expect(ax.score(optMax + 0.01 * (e.max - optMax))).toBeLessThan(1);
+    }
   });
 });

@@ -80,6 +80,9 @@ const Q_DEFICIENT = 0.5;
 /** max share of a pool all plants can draw in one day */
 const POOL_DRAW_MAX = 0.5;
 
+/** consecutive condition-free days after which an event key re-arms (contract 1.1) */
+export const RE_ARM_DAYS = 7;
+
 const LIMIT_THRESHOLD = 0.8;
 const LIMITING_ORDER: LimitingFactor[] = [
   "light", "co2", "temperature", "pH", "gh", "kh", "no3", "po4", "k", "fe", "space",
@@ -149,9 +152,13 @@ interface PlantRt {
   parSum: number;
   par: number;
   shaders: Set<number>;
-  prevShaders: Set<number>;
   lowLightDays: number;
-  raised: Set<SimEventType>;
+  /**
+   * Event de-duplication state, keyed `${type}|${detail ?? ""}` → last day the
+   * condition was observed true. A key re-raises only after ≥ RE_ARM_DAYS
+   * consecutive days without the condition (melt: never, see events()).
+   */
+  evLast: Map<string, number>;
   // evaluation results
   envScores: number[];
   fitness: number;
@@ -186,6 +193,8 @@ export class Engine {
   readonly water: number[];
   readonly dose: number[];
   readonly photoScale: number;
+  /** photoperiod used for parDailyMean (h/day) */
+  readonly photoperiodH: number;
   day = 0;
   private cellPlants: number[][];
   private readonly ncell: number;
@@ -203,6 +212,7 @@ export class Engine {
     this.cellArea = this.cellW * this.cellD;
     this.volumeL = (W * D * Math.max(1e-3, tank.heightCm)) / 1000;
     this.lowLightPar = num(input.lowLightPar, DEFAULT_LOW_LIGHT_PAR);
+    this.photoperiodH = Math.min(24, Math.max(0, num(input.light.photoperiodH, 8)));
     this.photoScale = Math.min(1.5, Math.max(0, num(input.light.photoperiodH, 8) / REF_PHOTOPERIOD_H));
 
     // Surface PAR with centred coverage footprint + soft fall-off.
@@ -297,9 +307,8 @@ export class Engine {
       parSum: 0,
       par: 0,
       shaders: new Set(),
-      prevShaders: new Set(),
       lowLightDays: 0,
-      raised: new Set(),
+      evLast: new Map(),
       envScores: [1, 1, 1, 1, 1, 1],
       fitness: 1,
       nutScores: [1, 1, 1, 1],
@@ -350,10 +359,7 @@ export class Engine {
     const plants = this.plants;
     for (const p of plants) {
       p.parSum = 0;
-      const t = p.prevShaders;
-      p.prevShaders = p.shaders;
-      t.clear();
-      p.shaders = t;
+      p.shaders.clear();
     }
     const byTop = (a: number, b: number) => plants[b].top - plants[a].top || a - b;
     for (let c = 0; c < this.ncell; c++) {
@@ -526,9 +532,23 @@ export class Engine {
 
   /* -------------------------------- events ------------------------------- */
 
-  private raise(p: PlantRt, type: SimEventType, out: SimEvent[], detail?: string): void {
-    if (p.raised.has(type)) return;
-    p.raised.add(type);
+  /**
+   * Observe that condition (type, detail) holds for `p` today and raise the
+   * event if its key is armed (contract 1.1 SimEvent semantics):
+   *  - first observation in the run raises (unless `silent`, used for day-0
+   *    overtaken so the initial layout never counts as overtaking);
+   *  - later observations raise again only when the previous observation was
+   *    ≥ RE_ARM_DAYS + 1 days ago, i.e. ≥ 7 consecutive condition-free days;
+   *  - `once` keys (melt) never re-arm.
+   */
+  private observe(
+    p: PlantRt, type: SimEventType, out: SimEvent[], detail?: string, once = false, silent = false,
+  ): void {
+    const key = detail === undefined ? type : `${type}|${detail}`;
+    const last = p.evLast.get(key);
+    p.evLast.set(key, this.day);
+    if (silent) return;
+    if (last !== undefined && (once || this.day - last - 1 < RE_ARM_DAYS)) return;
     const ev: SimEvent = { type, day: this.day, plantId: p.id };
     if (detail !== undefined) ev.detail = detail;
     out.push(ev);
@@ -540,25 +560,23 @@ export class Engine {
     for (const p of this.plants) {
       const lmin = p.sp.envelope.light.min;
       p.lowLightDays = p.par < lmin ? p.lowLightDays + 1 : 0;
-      if (p.lowLightDays >= 3) this.raise(p, "shaded", out);
-      if (this.day > 0 && !p.raised.has("overtaken")) {
-        let best: PlantRt | undefined;
-        for (const j of p.shaders) {
-          if (p.prevShaders.has(j)) continue;
-          const q = this.plants[j];
-          if (!best || q.top > best.top || (q.top === best.top && q.idx < best.idx)) best = q;
-        }
-        if (best) this.raise(p, "overtaken", out, best.id);
+      if (p.lowLightDays >= 3) this.observe(p, "shaded", out);
+      // Overtaken, per overtaking plant: condition = q's top is above p in a
+      // shared cell. Shaders present on day 0 are recorded silently, so a
+      // plant is only "overtaken" by someone who rises above it later (or
+      // again after ≥ 7 days of not being above it). Raised in idx order.
+      if (p.shaders.size) {
+        const sh = p.shaders.size > 1 ? [...p.shaders].sort((a, b) => a - b) : p.shaders;
+        for (const j of sh) this.observe(p, "overtaken", out, this.plants[j].id, false, this.day === 0);
       }
-      let worst = -1;
+      // Deficiency, per nutrient (NUTRIENTS order).
       for (let n = 0; n < NN; n++) {
-        if (p.q[n] < Q_DEFICIENT && (worst < 0 || p.q[n] < p.q[worst])) worst = n;
+        if (p.q[n] < Q_DEFICIENT) this.observe(p, "deficiency", out, NUTRIENTS[n]);
       }
-      if (worst >= 0) this.raise(p, "deficiency", out, NUTRIENTS[worst]);
-      if (p.health < 0.3) this.raise(p, "melt", out);
+      if (p.health < 0.3) this.observe(p, "melt", out, undefined, true);
       const top = Math.max(0, p.place.y) + p.height;
       if ((!p.floating && top >= 0.9 * H) || (p.stem && p.height >= p.sp.growth.maxHeightCm)) {
-        this.raise(p, "trimNeeded", out);
+        this.observe(p, "trimNeeded", out);
       }
     }
     return out;
@@ -574,6 +592,7 @@ export class Engine {
       spreadCm: p.spread,
       health: p.health,
       parAtPlant: p.par,
+      parDailyMean: (p.par * this.photoperiodH) / 24,
       limiting: p.limiting.slice(),
     }));
     const water: NutrientPool & { co2Ppm: number } = {
@@ -586,7 +605,29 @@ export class Engine {
       plants,
       light: { nx: this.nx, nz: this.nz, par: Float32Array.from(this.substratePar) },
       events,
+      substrate: { nx: this.nx, nz: this.nz, reserve: this.substrateReserve() },
     };
+  }
+
+  /**
+   * Contract 1.1 Frame.substrate.reserve: per cell, the MEAN over the four
+   * tracked nutrients (no3, po4, k, fe) of remaining / day-0 reserve, each
+   * clamped to 0..1. Cells with no day-0 reserve (inert substrate) are 0.
+   * Without dosing this is monotonic non-increasing (the pool only loses mass
+   * to root uptake and release; nothing refills it).
+   */
+  private substrateReserve(): Float32Array {
+    const N = this.ncell;
+    const out = new Float32Array(N);
+    for (let c = 0; c < N; c++) {
+      let s = 0;
+      for (let n = 0; n < NN; n++) {
+        const r0 = this.substrate0[n * N + c];
+        if (r0 > 0) s += Math.min(1, Math.max(0, this.substrate[n * N + c] / r0));
+      }
+      out[c] = s / NN;
+    }
+    return out;
   }
 
   /** Day-0 frame (initial planting, no growth). */
