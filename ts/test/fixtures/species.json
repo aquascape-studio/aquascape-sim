@@ -1,0 +1,5347 @@
+{
+ "anubias-barteri": {
+  "id": "anubias-barteri",
+  "scientificName": "Anubias barteri",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 25,
+   "maxSpreadCm": 25,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.35,
+   "k_light": 25,
+   "k_co2": 6,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "anubias-barteri-nana-petite": {
+  "id": "anubias-barteri-nana-petite",
+  "scientificName": "Anubias barteri var. nana 'Petite'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 8,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.28,
+   "k_light": 22,
+   "k_co2": 5,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "bacopa-caroliniana": {
+  "id": "bacopa-caroliniana",
+  "scientificName": "Bacopa caroliniana",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.85,
+   "k_light": 55,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 4.5
+  }
+ },
+ "bacopa-monnieri": {
+  "id": "bacopa-monnieri",
+  "scientificName": "Bacopa monnieri",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 15
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 4,
+   "internodeCm": 1.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.75,
+   "k_light": 40,
+   "k_co2": 12,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "bucephalandra-kedagang": {
+  "id": "bucephalandra-kedagang",
+  "scientificName": "Bucephalandra sp. 'Kedagang'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 8,
+   "maxSpreadCm": 12,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.32,
+   "k_light": 28,
+   "k_co2": 10,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 2.5
+  }
+ },
+ "cabomba-caroliniana": {
+  "id": "cabomba-caroliniana",
+  "scientificName": "Cabomba caroliniana",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 100,
+    "max": 180,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 22,
+    "max": 26
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 6,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.05,
+   "k_light": 70,
+   "k_co2": 18,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "cryptocoryne-wendtii": {
+  "id": "cryptocoryne-wendtii",
+  "scientificName": "Cryptocoryne wendtii",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 29
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.55,
+   "k_light": 35,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "echinodorus-red-flame": {
+  "id": "echinodorus-red-flame",
+  "scientificName": "Echinodorus 'Red Flame'",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 29
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "high",
+    "potassiumDemand": "high"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 25,
+   "internodeCm": null,
+   "propagation": [
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 60,
+   "k_co2": 18,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "eleocharis-parvula": {
+  "id": "eleocharis-parvula",
+  "scientificName": "Eleocharis parvula",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 90,
+    "max": 180,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.6,
+   "k_light": 70,
+   "k_co2": 15,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "glossostigma-elatinoides": {
+  "id": "glossostigma-elatinoides",
+  "scientificName": "Glossostigma elatinoides",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 80,
+    "opt": 140,
+    "max": 220,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 20,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.5,
+    "max": 7.2
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 4,
+   "maxSpreadCm": 10,
+   "internodeCm": 1.0,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.1,
+   "k_light": 110,
+   "k_co2": 20,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "hygrophila-corymbosa": {
+  "id": "hygrophila-corymbosa",
+  "scientificName": "Hygrophila corymbosa",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 60,
+   "maxSpreadCm": 10,
+   "internodeCm": 3.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.1,
+   "k_light": 50,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "hygrophila-polysperma": {
+  "id": "hygrophila-polysperma",
+  "scientificName": "Hygrophila polysperma",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 8,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.2,
+   "k_light": 45,
+   "k_co2": 15,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "limnobium-laevigatum": {
+  "id": "limnobium-laevigatum",
+  "scientificName": "Limnobium laevigatum",
+  "growthForm": "floating",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 80,
+    "max": 250,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 0,
+    "max": 0,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 15
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "high",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 3,
+   "maxSpreadCm": 5,
+   "internodeCm": null,
+   "propagation": [
+    "runners",
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.4,
+   "k_light": 90,
+   "k_co2": 2,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "limnophila-sessiliflora": {
+  "id": "limnophila-sessiliflora",
+  "scientificName": "Limnophila sessiliflora",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 7,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 6,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.05,
+   "k_light": 52,
+   "k_co2": 14,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 4.5
+  }
+ },
+ "ludwigia-palustris": {
+  "id": "ludwigia-palustris",
+  "scientificName": "Ludwigia palustris",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 22,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 7,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 52,
+   "k_co2": 14,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 4.5
+  }
+ },
+ "ludwigia-pantanal": {
+  "id": "ludwigia-pantanal",
+  "scientificName": "Ludwigia sp. 'Pantanal'",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 120,
+    "opt": 180,
+    "max": 260,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 25,
+    "opt": 35,
+    "max": 45,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.0,
+    "max": 6.8
+   },
+   "gh": {
+    "min": 1,
+    "opt": 4,
+    "max": 8
+   },
+   "kh": {
+    "min": 0,
+    "opt": 1,
+    "max": 3
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "high",
+    "potassiumDemand": "high"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "high"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 35,
+   "maxSpreadCm": 6,
+   "internodeCm": 0.8,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.5,
+   "k_light": 150,
+   "k_co2": 28,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 1.5
+  }
+ },
+ "ludwigia-repens": {
+  "id": "ludwigia-repens",
+  "scientificName": "Ludwigia repens",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 160,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 8,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 55,
+   "k_co2": 15,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "marsilea-hirsuta": {
+  "id": "marsilea-hirsuta",
+  "scientificName": "Marsilea hirsuta",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 15
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 10,
+   "internodeCm": 1.5,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.55,
+   "k_light": 45,
+   "k_co2": 12,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "micranthemum-tweediei-monte-carlo": {
+  "id": "micranthemum-tweediei-monte-carlo",
+  "scientificName": "Micranthemum tweediei 'Monte Carlo'",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 90,
+    "max": 180,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 12,
+   "internodeCm": 1.0,
+   "propagation": [
+    "topping",
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 70,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "microsorum-pteropus-narrow": {
+  "id": "microsorum-pteropus-narrow",
+  "scientificName": "Microsorum pteropus 'Narrow'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 45,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division",
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.35,
+   "k_light": 28,
+   "k_co2": 8,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "myriophyllum-matogrossense": {
+  "id": "myriophyllum-matogrossense",
+  "scientificName": "Myriophyllum matogrossense",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 100,
+    "max": 180,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.2
+   },
+   "gh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 6,
+   "internodeCm": 2.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 75,
+   "k_co2": 18,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "rotala-macrandra": {
+  "id": "rotala-macrandra",
+  "scientificName": "Rotala macrandra",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 100,
+    "opt": 160,
+    "max": 240,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 25,
+    "opt": 35,
+    "max": 45,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.2,
+    "max": 7.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 10
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 5
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "high"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "high"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 8,
+   "internodeCm": 1.2,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 130,
+   "k_co2": 28,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 2.0
+  }
+ },
+ "rotala-rotundifolia": {
+  "id": "rotala-rotundifolia",
+  "scientificName": "Rotala rotundifolia",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 15
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 60,
+   "k_co2": 20,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "staurogyne-repens": {
+  "id": "staurogyne-repens",
+  "scientificName": "Staurogyne repens",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 160,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 10,
+   "internodeCm": 0.7,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 55,
+   "k_co2": 18,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "taxiphyllum-barbieri": {
+  "id": "taxiphyllum-barbieri",
+  "scientificName": "Taxiphyllum barbieri",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 10,
+    "opt": 40,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 23,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 1,
+    "opt": 6,
+    "max": 16
+   },
+   "kh": {
+    "min": 0,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 4,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.4,
+   "k_light": 30,
+   "k_co2": 10,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "vesicularia-montagnei": {
+  "id": "vesicularia-montagnei",
+  "scientificName": "Vesicularia montagnei",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 26
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 3,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.35,
+   "k_light": 38,
+   "k_co2": 14,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "cryptocoryne-parva": {
+  "id": "cryptocoryne-parva",
+  "scientificName": "Cryptocoryne parva",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 7,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": false
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 6,
+   "maxSpreadCm": 5,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.38,
+   "k_light": 42,
+   "k_co2": 14,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "cryptocoryne-balansae": {
+  "id": "cryptocoryne-balansae",
+  "scientificName": "Cryptocoryne crispatula var. balansae",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 10,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.55,
+   "k_light": 45,
+   "k_co2": 15,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "echinodorus-tenellus": {
+  "id": "echinodorus-tenellus",
+  "scientificName": "Echinodorus tenellus",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 160,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.6,
+   "k_light": 58,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "microsorum-pteropus-windelov": {
+  "id": "microsorum-pteropus-windelov",
+  "scientificName": "Microsorum pteropus 'Windelov'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 15,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 1,
+    "opt": 6,
+    "max": 16
+   },
+   "kh": {
+    "min": 0,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division",
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.33,
+   "k_light": 30,
+   "k_co2": 8,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "bolbitis-heudelotii": {
+  "id": "bolbitis-heudelotii",
+  "scientificName": "Bolbitis heudelotii",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.0
+   },
+   "gh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 25,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division",
+    "spores"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.42,
+   "k_light": 45,
+   "k_co2": 18,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 2.5
+  }
+ },
+ "riccardia-chamedryfolia": {
+  "id": "riccardia-chamedryfolia",
+  "scientificName": "Riccardia chamedryfolia",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 22,
+    "max": 26
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 2,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.3,
+   "k_light": 45,
+   "k_co2": 18,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "fissidens-fontanus": {
+  "id": "fissidens-fontanus",
+  "scientificName": "Fissidens fontanus",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 50,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 21,
+    "max": 24
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.33,
+   "k_light": 35,
+   "k_co2": 14,
+   "preferred_temp_c": 21,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "leptodictyum-riparium": {
+  "id": "leptodictyum-riparium",
+  "scientificName": "Leptodictyum riparium",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 10,
+    "opt": 35,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 10,
+    "opt": 20,
+    "max": 26
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.45,
+   "k_light": 22,
+   "k_co2": 7,
+   "preferred_temp_c": 20,
+   "temp_tolerance_c": 5.5
+  }
+ },
+ "pistia-stratiotes": {
+  "id": "pistia-stratiotes",
+  "scientificName": "Pistia stratiotes",
+  "growthForm": "floating",
+  "envelope": {
+   "light": {
+    "min": 60,
+    "opt": 120,
+    "max": 250,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 0,
+    "max": 5,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 27,
+    "max": 32
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.0,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "high",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.2,
+   "k_light": 85,
+   "k_co2": 3,
+   "preferred_temp_c": 27,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "salvinia-natans": {
+  "id": "salvinia-natans",
+  "scientificName": "Salvinia natans",
+  "growthForm": "floating",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 100,
+    "max": 200,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 0,
+    "max": 5,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 1,
+    "opt": 6,
+    "max": 18
+   },
+   "kh": {
+    "min": 0,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 2,
+   "maxSpreadCm": 3,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.1,
+   "k_light": 70,
+   "k_co2": 2,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "hemianthus-callitrichoides-cuba": {
+  "id": "hemianthus-callitrichoides-cuba",
+  "scientificName": "Hemianthus callitrichoides 'Cuba'",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 90,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 20,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 4,
+   "maxSpreadCm": 20,
+   "internodeCm": 0.5,
+   "propagation": [
+    "topping",
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 80,
+   "k_co2": 25,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "utricularia-graminifolia": {
+  "id": "utricularia-graminifolia",
+  "scientificName": "Utricularia graminifolia",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.0,
+    "max": 7.0
+   },
+   "gh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 8,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "runners",
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 65,
+   "k_co2": 20,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "eleocharis-acicularis-mini": {
+  "id": "eleocharis-acicularis-mini",
+  "scientificName": "Eleocharis acicularis 'Mini'",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.55,
+   "k_light": 65,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "rotala-sp-hra": {
+  "id": "rotala-sp-hra",
+  "scientificName": "Rotala sp. 'H'ra'",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 60,
+    "opt": 100,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 20,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 29
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.3,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 70,
+   "k_co2": 22,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "rotala-wallichii": {
+  "id": "rotala-wallichii",
+  "scientificName": "Rotala wallichii",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 60,
+    "opt": 100,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 20,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.2,
+    "max": 7.0
+   },
+   "gh": {
+    "min": 1,
+    "opt": 4,
+    "max": 8
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 5
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "high"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.2,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.65,
+   "k_light": 100,
+   "k_co2": 25,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "ludwigia-palustris-super-red": {
+  "id": "ludwigia-palustris-super-red",
+  "scientificName": "Ludwigia palustris 'Super Red'",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 90,
+    "max": 140,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 4,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 80,
+   "k_co2": 22,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "alternanthera-reineckii-mini": {
+  "id": "alternanthera-reineckii-mini",
+  "scientificName": "Alternanthera reineckii 'Mini'",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 75,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 8,
+   "internodeCm": 0.8,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 70,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "pogostemon-erectus": {
+  "id": "pogostemon-erectus",
+  "scientificName": "Pogostemon erectus",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 75,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 6,
+   "internodeCm": 1.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 60,
+   "k_co2": 18,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "pogostemon-helferi": {
+  "id": "pogostemon-helferi",
+  "scientificName": "Pogostemon helferi",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 8,
+   "maxSpreadCm": 15,
+   "internodeCm": 0.5,
+   "propagation": [
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 50,
+   "k_co2": 12,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "cryptocoryne-lutea": {
+  "id": "cryptocoryne-lutea",
+  "scientificName": "Cryptocoryne lutea",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 40,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 15,
+   "maxSpreadCm": 12,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.38,
+   "k_light": 35,
+   "k_co2": 10,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "cryptocoryne-undulata": {
+  "id": "cryptocoryne-undulata",
+  "scientificName": "Cryptocoryne undulata",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 45,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 12,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 25,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.5,
+   "k_light": 35,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "cryptocoryne-spiralis": {
+  "id": "cryptocoryne-spiralis",
+  "scientificName": "Cryptocoryne spiralis",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 55,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.5,
+   "k_light": 40,
+   "k_co2": 14,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "bucephalandra-sp-mini": {
+  "id": "bucephalandra-sp-mini",
+  "scientificName": "Bucephalandra sp. 'Mini'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 21,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 1,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 6,
+   "maxSpreadCm": 10,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.3,
+   "k_light": 25,
+   "k_co2": 8,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 2.5
+  }
+ },
+ "anubias-barteri-coffeefolia": {
+  "id": "anubias-barteri-coffeefolia",
+  "scientificName": "Anubias barteri var. 'Coffeefolia'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.33,
+   "k_light": 25,
+   "k_co2": 6,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "microsorum-pteropus-trident": {
+  "id": "microsorum-pteropus-trident",
+  "scientificName": "Microsorum pteropus 'Trident'",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 45,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division",
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.34,
+   "k_light": 28,
+   "k_co2": 8,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "taxiphyllum-sp-flame": {
+  "id": "taxiphyllum-sp-flame",
+  "scientificName": "Taxiphyllum sp. 'Flame'",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 35,
+    "max": 70,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 10,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.3,
+   "k_light": 25,
+   "k_co2": 8,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "riccia-fluitans": {
+  "id": "riccia-fluitans",
+  "scientificName": "Riccia fluitans",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 5,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.6,
+   "k_light": 55,
+   "k_co2": 15,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "hygrophila-pinnatifida": {
+  "id": "hygrophila-pinnatifida",
+  "scientificName": "Hygrophila pinnatifida",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 50,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 25,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.45,
+   "k_light": 35,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "limnophila-aromatica": {
+  "id": "limnophila-aromatica",
+  "scientificName": "Limnophila aromatica",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 65,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 8,
+   "internodeCm": 3.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 55,
+   "k_co2": 15,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "eriocaulon-cinereum": {
+  "id": "eriocaulon-cinereum",
+  "scientificName": "Eriocaulon cinereum",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 27
+   },
+   "pH": {
+    "min": 4.5,
+    "opt": 5.8,
+    "max": 6.8
+   },
+   "gh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   },
+   "kh": {
+    "min": 0,
+    "opt": 1,
+    "max": 3
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 8,
+   "maxSpreadCm": 8,
+   "internodeCm": null,
+   "propagation": [
+    "side-shoots",
+    "seed"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.35,
+   "k_light": 65,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 2.5
+  }
+ },
+ "sagittaria-subulata": {
+  "id": "sagittaria-subulata",
+  "scientificName": "Sagittaria subulata",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 22,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.0,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 2,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 25,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 45,
+   "k_co2": 12,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "lilaeopsis-brasiliensis": {
+  "id": "lilaeopsis-brasiliensis",
+  "scientificName": "Lilaeopsis brasiliensis",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 90,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 12
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 6,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.7,
+   "k_light": 70,
+   "k_co2": 18,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "hydrocotyle-tripartita-japan": {
+  "id": "hydrocotyle-tripartita-japan",
+  "scientificName": "Hydrocotyle tripartita 'Japan'",
+  "growthForm": "carpeting",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 80,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 6,
+   "maxSpreadCm": 20,
+   "internodeCm": null,
+   "propagation": [
+    "runners",
+    "topping"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 65,
+   "k_co2": 18,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "ammannia-gracilis": {
+  "id": "ammannia-gracilis",
+  "scientificName": "Ammannia gracilis",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 60,
+    "opt": 100,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 20,
+    "opt": 30,
+    "max": 40,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 29
+   },
+   "pH": {
+    "min": 5.0,
+    "opt": 6.3,
+    "max": 7.2
+   },
+   "gh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   },
+   "kh": {
+    "min": 0,
+    "opt": 2,
+    "max": 6
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 45,
+   "maxSpreadCm": 10,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 90,
+   "k_co2": 25,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.0
+  }
+ },
+ "proserpinaca-palustris": {
+  "id": "proserpinaca-palustris",
+  "scientificName": "Proserpinaca palustris",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 85,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 16,
+    "opt": 23,
+    "max": 27
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 10,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 70,
+   "k_co2": 20,
+   "preferred_temp_c": 23,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "didiplis-diandra": {
+  "id": "didiplis-diandra",
+  "scientificName": "Didiplis diandra",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 85,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 15,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 35,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.9,
+   "k_light": 65,
+   "k_co2": 20,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "nymphaea-lotus": {
+  "id": "nymphaea-lotus",
+  "scientificName": "Nymphaea lotus",
+  "growthForm": "rhizome",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 80,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 26,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 40,
+   "internodeCm": null,
+   "propagation": [
+    "adventitious-plantlets",
+    "seed",
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 60,
+   "k_co2": 15,
+   "preferred_temp_c": 26,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "echinodorus-red-diamond": {
+  "id": "echinodorus-red-diamond",
+  "scientificName": "Echinodorus 'Red Diamond'",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 70,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": false
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.65,
+   "k_light": 55,
+   "k_co2": 18,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "vallisneria-spiralis": {
+  "id": "vallisneria-spiralis",
+  "scientificName": "Vallisneria spiralis",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 25,
+    "opt": 55,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 15,
+    "opt": 24,
+    "max": 30
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.2,
+    "max": 8.5
+   },
+   "gh": {
+    "min": 4,
+    "opt": 10,
+    "max": 20
+   },
+   "kh": {
+    "min": 3,
+    "opt": 6,
+    "max": 15
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 60,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 40,
+   "k_co2": 10,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "cryptocoryne-beckettii": {
+  "id": "cryptocoryne-beckettii",
+  "scientificName": "Cryptocoryne beckettii",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 40,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 22,
+    "opt": 25,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 15,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "runners"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.5,
+   "k_light": 35,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "echinodorus-bleheri": {
+  "id": "echinodorus-bleheri",
+  "scientificName": "Echinodorus bleheri",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 70,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 2,
+    "opt": 5,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": false
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 40,
+   "internodeCm": null,
+   "propagation": [
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.75,
+   "k_light": 55,
+   "k_co2": 15,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "alternanthera-reineckii": {
+  "id": "alternanthera-reineckii",
+  "scientificName": "Alternanthera reineckii",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 50,
+    "opt": 85,
+    "max": 130,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 35,
+   "maxSpreadCm": 8,
+   "internodeCm": 2.5,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 70,
+   "k_co2": 20,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "hygrophila-difformis": {
+  "id": "hygrophila-difformis",
+  "scientificName": "Hygrophila difformis",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.8
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 16
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 20,
+   "internodeCm": 4.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 45,
+   "k_co2": 12,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "rotala-indica": {
+  "id": "rotala-indica",
+  "scientificName": "Rotala indica",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 70,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 25,
+    "max": 35,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.5,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 0,
+    "opt": 3,
+    "max": 8
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "high",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 30,
+   "maxSpreadCm": 5,
+   "internodeCm": 1.2,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 55,
+   "k_co2": 18,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "heteranthera-zosterifolia": {
+  "id": "heteranthera-zosterifolia",
+  "scientificName": "Heteranthera zosterifolia",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 70,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 10,
+    "opt": 20,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "medium"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 50,
+   "maxSpreadCm": 10,
+   "internodeCm": 3.0,
+   "propagation": [
+    "topping",
+    "side-shoots"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 55,
+   "k_co2": 15,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "egeria-densa": {
+  "id": "egeria-densa",
+  "scientificName": "Egeria densa",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 25,
+    "opt": 50,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 10,
+    "opt": 22,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.0,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 3,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 2,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 100,
+   "maxSpreadCm": 10,
+   "internodeCm": 2.0,
+   "propagation": [
+    "topping",
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.2,
+   "k_light": 40,
+   "k_co2": 10,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "ceratophyllum-demersum": {
+  "id": "ceratophyllum-demersum",
+  "scientificName": "Ceratophyllum demersum",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 20,
+    "opt": 45,
+    "max": 90,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 10,
+    "opt": 22,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.2,
+    "max": 8.5
+   },
+   "gh": {
+    "min": 3,
+    "opt": 10,
+    "max": 20
+   },
+   "kh": {
+    "min": 2,
+    "opt": 6,
+    "max": 15
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 100,
+   "maxSpreadCm": 15,
+   "internodeCm": 2.0,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.1,
+   "k_light": 35,
+   "k_co2": 8,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 5.0
+  }
+ },
+ "ceratopteris-thalictroides": {
+  "id": "ceratopteris-thalictroides",
+  "scientificName": "Ceratopteris thalictroides",
+  "growthForm": "rosette",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 60,
+    "max": 110,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 12
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 40,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "adventitious-plantlets"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.0,
+   "k_light": 45,
+   "k_co2": 10,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "anubias-barteri-nana": {
+  "id": "anubias-barteri-nana",
+  "scientificName": "Anubias barteri var. nana",
+  "growthForm": "epiphyte",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 100,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 20,
+    "opt": 25,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 18
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 14
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 12,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "rhizome-division"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.3,
+   "k_light": 22,
+   "k_co2": 5,
+   "preferred_temp_c": 25,
+   "temp_tolerance_c": 4.0
+  }
+ },
+ "lemna-minor": {
+  "id": "lemna-minor",
+  "scientificName": "Lemna minor",
+  "growthForm": "floating",
+  "envelope": {
+   "light": {
+    "min": 30,
+    "opt": 70,
+    "max": 150,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 0,
+    "max": 10,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 10,
+    "opt": 22,
+    "max": 30
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 7.0,
+    "max": 8.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 8,
+    "max": 20
+   },
+   "kh": {
+    "min": 1,
+    "opt": 5,
+    "max": 15
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "high",
+    "phosphorusDemand": "high",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "fast",
+   "maxHeightCm": 1,
+   "maxSpreadCm": 30,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 1.3,
+   "k_light": 60,
+   "k_co2": 2,
+   "preferred_temp_c": 22,
+   "temp_tolerance_c": 6.0
+  }
+ },
+ "monosolenium-tenerum": {
+  "id": "monosolenium-tenerum",
+  "scientificName": "Monosolenium tenerum",
+  "growthForm": "moss",
+  "envelope": {
+   "light": {
+    "min": 15,
+    "opt": 40,
+    "max": 80,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 0,
+    "opt": 10,
+    "max": 25,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 6.0,
+    "opt": 7.0,
+    "max": 8.0
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 4,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "low",
+    "phosphorusDemand": "low",
+    "potassiumDemand": "low"
+   },
+   "micros": {
+    "ironDemand": "low",
+    "traceDemand": "low"
+   },
+   "rootFeeder": false,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "slow",
+   "maxHeightCm": 3,
+   "maxSpreadCm": 15,
+   "internodeCm": null,
+   "propagation": [
+    "fragmentation"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.3,
+   "k_light": 28,
+   "k_co2": 8,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ },
+ "hydrocotyle-leucocephala": {
+  "id": "hydrocotyle-leucocephala",
+  "scientificName": "Hydrocotyle leucocephala",
+  "growthForm": "stem",
+  "envelope": {
+   "light": {
+    "min": 40,
+    "opt": 70,
+    "max": 120,
+    "unit": "µmol/m²/s"
+   },
+   "co2": {
+    "min": 5,
+    "opt": 15,
+    "max": 30,
+    "unit": "ppm"
+   },
+   "temperatureC": {
+    "min": 18,
+    "opt": 24,
+    "max": 28
+   },
+   "pH": {
+    "min": 5.5,
+    "opt": 6.8,
+    "max": 7.5
+   },
+   "gh": {
+    "min": 2,
+    "opt": 6,
+    "max": 14
+   },
+   "kh": {
+    "min": 1,
+    "opt": 3,
+    "max": 10
+   }
+  },
+  "nutrients": {
+   "macros": {
+    "nitrogenDemand": "medium",
+    "phosphorusDemand": "medium",
+    "potassiumDemand": "medium"
+   },
+   "micros": {
+    "ironDemand": "medium",
+    "traceDemand": "low"
+   },
+   "rootFeeder": true,
+   "waterColumnFeeder": true
+  },
+  "growth": {
+   "rate": "medium",
+   "maxHeightCm": 20,
+   "maxSpreadCm": 25,
+   "internodeCm": null,
+   "propagation": [
+    "runners",
+    "topping"
+   ]
+  },
+  "sim": {
+   "k_photosynthesis": 0.8,
+   "k_light": 55,
+   "k_co2": 14,
+   "preferred_temp_c": 24,
+   "temp_tolerance_c": 3.5
+  }
+ }
+}
