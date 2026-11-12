@@ -9,7 +9,28 @@
  * Units: PAR µmol·m⁻²·s⁻¹, concentrations mg/L, CO2 ppm (mg/L), mass g, time days.
  */
 
-export const CONTRACT_VERSION = "1.0.0" as const;
+export const CONTRACT_VERSION = "1.1.0" as const;
+
+/*
+ * Changelog
+ * 1.1.0 (2026-11-12, additive — 1.0 consumers keep working)
+ *   - PlantFrame.parAtPlant is now documented as what 1.0 actually emitted:
+ *     PAR at the top of the plant while the light is ON. New field
+ *     PlantFrame.parDailyMean = parAtPlant × photoperiodH / 24.
+ *   - Frame.substrate (optional): per-cell aquasoil reserve remaining, 0..1.
+ *   - WorkerResponse "cancelled" acknowledges a "cancel" request.
+ *   - Event semantics pinned down (see SimEvent).
+ *   - Envelope rule pinned down (see ENVELOPE_RULE).
+ */
+
+/**
+ * How a botany 3-point range {min, opt, max} becomes the trapezoidal fitness
+ * envelope (1.1 makes the 1.0 behaviour normative; see engine.envelopeAxis):
+ *   optMin = opt − 0.3 × (opt − min),  optMax = opt + 0.3 × (max − opt)
+ *   fitness = 0 at x ≤ min or x ≥ max, 1 on [optMin, optMax], linear ramps between.
+ * Implementations that deviate must bump CONTRACT_VERSION.
+ */
+export const ENVELOPE_RULE = "trapezoid-plateau-0.3" as const;
 
 export interface TankDims {
   /** inner width along x, cm */
@@ -140,8 +161,11 @@ export interface PlantFrame {
   spreadCm: number;
   /** 0..1 */
   health: number;
-  /** daily-mean PAR received at the top of this plant */
+  /** PAR at the top of this plant while the light is ON (µmol·m⁻²·s⁻¹) */
   parAtPlant: number;
+  /** 1.1: daily-mean PAR at the top of this plant = parAtPlant × photoperiodH / 24.
+   *  Optional so 1.0 producers stay valid; the 1.1 engine always sets it. */
+  parDailyMean?: number;
   /** factors currently limiting growth, most-limiting first; empty when unconstrained */
   limiting: LimitingFactor[];
 }
@@ -155,6 +179,15 @@ export interface LightGrid {
 
 export type SimEventType = "shaded" | "overtaken" | "deficiency" | "melt" | "trimNeeded";
 
+/**
+ * Event semantics (1.1):
+ * - Each event is emitted once, on the day it is first raised.
+ * - "deficiency" is de-duplicated per (plantId, nutrient): it is raised again
+ *   only after that plant has been free of that deficiency for ≥ 7 days.
+ * - "shaded" / "overtaken" / "trimNeeded" follow the same 7-day re-arm rule
+ *   per (plantId, detail).
+ * - "melt" is raised at most once per plant per run.
+ */
 export interface SimEvent {
   type: SimEventType;
   day: number;
@@ -164,6 +197,14 @@ export interface SimEvent {
   detail?: string;
 }
 
+/** 1.1: aquasoil reserve remaining per light-grid cell (same nx/nz as LightGrid). */
+export interface SubstrateGrid {
+  nx: number;
+  nz: number;
+  /** row-major [iz * nx + ix], fraction of the day-0 reserve left, 0..1 (all 0 for inert) */
+  reserve: Float32Array;
+}
+
 export interface Frame {
   day: number;
   water: NutrientPool & { co2Ppm: number };
@@ -171,6 +212,8 @@ export interface Frame {
   light: LightGrid;
   /** events first raised on this day */
   events: SimEvent[];
+  /** 1.1: optional so 1.0 producers remain valid; the 1.1 engine always sets it */
+  substrate?: SubstrateGrid;
 }
 
 export interface SimSummary {
@@ -195,4 +238,6 @@ export type WorkerRequest =
 export type WorkerResponse =
   | { type: "frame"; requestId: number; frame: Frame }
   | { type: "done"; requestId: number; result: SimResult; elapsedMs: number }
-  | { type: "error"; requestId: number; message: string };
+  | { type: "error"; requestId: number; message: string }
+  /** 1.1: sent once after a "cancel" for a run that was still in flight; no further messages for that requestId */
+  | { type: "cancelled"; requestId: number };

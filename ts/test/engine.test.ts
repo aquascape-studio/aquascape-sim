@@ -31,7 +31,7 @@ describe("simulate — shape & determinism", () => {
   const r = simulate(input);
 
   it("emits frames for day 0..days inclusive", () => {
-    expect(CONTRACT_VERSION).toBe("1.0.0");
+    expect(CONTRACT_VERSION).toBe("1.1.0");
     expect(r.frames).toHaveLength(31);
     r.frames.forEach((f, i) => expect(f.day).toBe(i));
     expect(r.summary.totalBiomassG).toHaveLength(31);
