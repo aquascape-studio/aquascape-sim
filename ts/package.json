@@ -1,0 +1,25 @@
+{
+  "name": "@aquascape/sim-core",
+  "version": "0.1.0",
+  "description": "Deterministic, dependency-free TypeScript port + spatial extension of the aquascape-sim growth engine",
+  "type": "module",
+  "private": false,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./worker": "./src/worker.ts",
+    "./contract": "./src/contract.ts"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "parity:gen": "python3 scripts/gen_parity.py"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "vitest": "2.1.9"
+  },
+  "packageManager": "pnpm@9.12.0"
+}
