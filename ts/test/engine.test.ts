@@ -31,7 +31,7 @@ describe("simulate — shape & determinism", () => {
   const r = simulate(input);
 
   it("emits frames for day 0..days inclusive", () => {
-    expect(CONTRACT_VERSION).toBe("1.1.0");
+    expect(CONTRACT_VERSION).toBe("1.1.1");
     expect(r.frames).toHaveLength(31);
     r.frames.forEach((f, i) => expect(f.day).toBe(i));
     expect(r.summary.totalBiomassG).toHaveLength(31);
@@ -423,8 +423,15 @@ describe("contract 1.1", () => {
     expect(day(0.1)).toHaveLength(1); // 7 free days ⇒ re-armed
   });
 
+  it("light axis uses upper plateau 0.7 (ENVELOPE_RULE light exception)", () => {
+    const e = { min: 10, opt: 40, max: 120 };
+    const ax = envelopeAxis(e, 0.3, 0.7);
+    expect(ax.score(e.opt + 0.7 * (e.max - e.opt))).toBeCloseTo(1, 12);
+    expect(ax.score(e.opt + 0.75 * (e.max - e.opt))).toBeLessThan(1);
+  });
+
   it("envelopeAxis matches ENVELOPE_RULE (plateau 0.3)", () => {
-    expect(ENVELOPE_RULE).toBe("trapezoid-plateau-0.3");
+    expect(ENVELOPE_RULE).toBe("trapezoid-plateau-0.3-light-upper-0.7");
     const cases = [
       { min: 10, opt: 40, max: 120 },
       { min: 6.0, opt: 6.8, max: 7.5 },

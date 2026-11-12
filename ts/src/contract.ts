@@ -9,10 +9,12 @@
  * Units: PAR µmol·m⁻²·s⁻¹, concentrations mg/L, CO2 ppm (mg/L), mass g, time days.
  */
 
-export const CONTRACT_VERSION = "1.1.0" as const;
+export const CONTRACT_VERSION = "1.1.1" as const;
 
 /*
  * Changelog
+ * 1.1.1 (2026-11-12) ENVELOPE_RULE corrected to the 1.0 engine's actual light
+ *   axis (upper plateau 0.7). Documentation-only; outputs unchanged.
  * 1.1.0 (2026-11-12, additive — 1.0 consumers keep working)
  *   - PlantFrame.parAtPlant is now documented as what 1.0 actually emitted:
  *     PAR at the top of the plant while the light is ON. New field
@@ -26,11 +28,13 @@ export const CONTRACT_VERSION = "1.1.0" as const;
 /**
  * How a botany 3-point range {min, opt, max} becomes the trapezoidal fitness
  * envelope (1.1 makes the 1.0 behaviour normative; see engine.envelopeAxis):
- *   optMin = opt − 0.3 × (opt − min),  optMax = opt + 0.3 × (max − opt)
+ *   optMin = opt − 0.3 × (opt − min),  optMax = opt + u × (max − opt)
+ *   where u = 0.3 for every axis except light, which uses u = 0.7 (plants
+ *   tolerate PAR above opt far better than below it).
  *   fitness = 0 at x ≤ min or x ≥ max, 1 on [optMin, optMax], linear ramps between.
  * Implementations that deviate must bump CONTRACT_VERSION.
  */
-export const ENVELOPE_RULE = "trapezoid-plateau-0.3" as const;
+export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7" as const;
 
 export interface TankDims {
   /** inner width along x, cm */
