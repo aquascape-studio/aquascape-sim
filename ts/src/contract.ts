@@ -9,10 +9,23 @@
  * Units: PAR µmol·m⁻²·s⁻¹, concentrations mg/L, CO2 ppm (mg/L), mass g, time days.
  */
 
-export const CONTRACT_VERSION = "1.1.1" as const;
+export const CONTRACT_VERSION = "1.2.0" as const;
 
 /*
  * Changelog
+ * 1.2.0 (2026-11-20) Light above the botany range no longer kills plants
+ *   (aquascape-sim#8: at High light the tops of tall stems saw ~300 PAR, above
+ *   `light.max`, so the light axis scored 0, fitness collapsed and day-90
+ *   biomass halved). Botany `light.max` is the top of the recommended husbandry
+ *   range, not a lethal limit: submerged macrophytes saturate anywhere between
+ *   ~100 and ~1000 PAR, and excess light without CO2 stalls growth (CO2
+ *   limitation, algae) rather than melting plants.
+ *   - ENVELOPE_RULE: the light axis upper side ramps from 1 at optMax down to
+ *     LIGHT_UPPER_FLOOR at `max` and stays there for any PAR ≥ max. The lower
+ *     side (and every other axis) is unchanged.
+ *   - Output-affecting: day-90 biomass at High light rises; Low/Medium change
+ *     only where a plant's PAR exceeded optMax. Behavioural invariants are
+ *     listed under LIGHT_RESPONSE_INVARIANTS.
  * 1.1.1 (2026-11-12) ENVELOPE_RULE corrected to the 1.0 engine's actual light
  *   axis (upper plateau 0.7). Documentation-only; outputs unchanged.
  * 1.1.0 (2026-11-12, additive — 1.0 consumers keep working)
@@ -31,10 +44,37 @@ export const CONTRACT_VERSION = "1.1.1" as const;
  *   optMin = opt − 0.3 × (opt − min),  optMax = opt + u × (max − opt)
  *   where u = 0.3 for every axis except light, which uses u = 0.7 (plants
  *   tolerate PAR above opt far better than below it).
- *   fitness = 0 at x ≤ min or x ≥ max, 1 on [optMin, optMax], linear ramps between.
+ *   Non-light axes: fitness = 0 at x ≤ min or x ≥ max, 1 on [optMin, optMax],
+ *   linear ramps between.
+ *   Light axis (1.2.0): fitness = 0 at x ≤ min, linear ramp up to 1 at optMin,
+ *   1 on [optMin, optMax], linear ramp down from 1 at optMax to
+ *   LIGHT_UPPER_FLOOR at max, and LIGHT_UPPER_FLOOR for every x ≥ max
+ *   (never 0 on the high side).
  * Implementations that deviate must bump CONTRACT_VERSION.
  */
-export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7" as const;
+export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7-floor" as const;
+
+/** Light-axis score for PAR at or above the species' `light.max` (1.2.0). */
+export const LIGHT_UPPER_FLOOR = 0.75 as const;
+
+/**
+ * Behavioural invariants every engine release must satisfy (1.2.0), checked by
+ * the "light response" test suite on the Dutch 60-P reference scenario
+ * (60×30×36 cm, Dutch Streets template, 90 days, surface PAR Low 100 /
+ * Medium 200 / High 320, CO2 off 5 ppm / on 25 ppm), total day-90 biomass B:
+ *   1. With CO2:    B(High) ≥ B(Medium) > B(Low).
+ *   2. Without CO2: 0.8 × B(Medium) ≤ B(High) ≤ 1.15 × B(Medium)  (plateau, no
+ *      halving), and B(Medium) > B(Low).
+ *   3. CO2 on > CO2 off at every light level.
+ *   4. No "melt" event caused solely by light ≥ `light.max` (a plant whose only
+ *      envelope score < 1 is the light axis on its upper side never melts).
+ */
+export const LIGHT_RESPONSE_INVARIANTS = [
+  "co2-on: High >= Medium > Low",
+  "co2-off: 0.8*Medium <= High <= 1.15*Medium, Medium > Low",
+  "co2-on > co2-off at every light level",
+  "no melt from light above max alone",
+] as const;
 
 export interface TankDims {
   /** inner width along x, cm */
