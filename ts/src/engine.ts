@@ -13,6 +13,7 @@
  *   4. evaluate per-plant scores / limiting factors, raise events, emit frame.
  */
 
+import { LIGHT_UPPER_FLOOR } from "./contract";
 import type {
   Frame,
   LimitingFactor,
@@ -106,6 +107,31 @@ export function envelopeAxis(
   const optMin = e.opt - lowerPlateau * (e.opt - e.min);
   const optMax = e.opt + upperPlateau * (e.max - e.opt);
   return new Axis(e.min, optMin, optMax, e.max);
+}
+
+/**
+ * Light axis (contract 1.2.0 ENVELOPE_RULE): same trapezoid as `Axis` on the
+ * lower side, but the upper side ramps from 1 at optMax down to
+ * LIGHT_UPPER_FLOOR at `max` and stays there for every PAR ≥ max. Botany
+ * `light.max` is the top of the husbandry range, not a lethal limit, so light
+ * above it never scores 0 (aquascape-sim#8). `algo/envelope.ts` Axis is left
+ * untouched: it is the 1:1 Python port checked by the parity tests.
+ */
+export class LightAxis extends Axis {
+  override score(x: number): number {
+    if (x <= this.min) return 0.0;
+    if (x < this.optMin) return (x - this.min) / Math.max(this.optMin - this.min, 1e-9);
+    if (x <= this.optMax) return 1.0;
+    if (x >= this.max) return LIGHT_UPPER_FLOOR;
+    const t = (x - this.optMax) / Math.max(this.max - this.optMax, 1e-9);
+    return 1.0 - (1.0 - LIGHT_UPPER_FLOOR) * t;
+  }
+}
+
+/** {min, opt, max} light envelope → LightAxis (lower plateau 0.3, upper plateau 0.7, floor above max). */
+export function lightEnvelopeAxis(e: { min: number; opt: number; max: number }): LightAxis {
+  const a = envelopeAxis(e, 0.3, 0.7);
+  return new LightAxis(a.min, a.optMin, a.optMax, a.max);
 }
 
 /** Canopy transmission for an overhead load of `loadGPerCm2` g/cm². */
@@ -273,8 +299,8 @@ export class Engine {
     const s0 = (S0_FRAC[form] ?? 0.45) * sMax;
     const bMax = Math.max(0.5, BIOMASS_DENSITY * hTarget * Math.PI * (sMax / 2) ** 2);
     const axes: Record<string, Axis> = {};
-    // Light above opt is rarely harmful until close to max: wider upper plateau.
-    for (const k of ENV_KEYS) axes[k] = k === "light" ? envelopeAxis(sp.envelope[k], 0.3, 0.7) : envelopeAxis(sp.envelope[k]);
+    // Light: wider upper plateau (0.7) and a LIGHT_UPPER_FLOOR above max (contract 1.2.0).
+    for (const k of ENV_KEYS) axes[k] = k === "light" ? lightEnvelopeAxis(sp.envelope[k]) : envelopeAxis(sp.envelope[k]);
     const macros = sp.nutrients.macros ?? {};
     const micros = sp.nutrients.micros ?? {};
     const dm = (s: string | undefined) => DEMAND_MULT[s ?? "medium"] ?? 1;

@@ -1,0 +1,1657 @@
+{
+ "provenance": {
+  "description": "Dutch 60-P reference scenario (contract 1.2.0 LIGHT_RESPONSE_INVARIANTS). SimInput exactly as aquascape-web builds it for the Dutch Streets template on an ADA 60-P: buildTemplateInput(getTemplate('dutch-streets'), {w:60,d:30,h:32}, lib/sim/vendor/plants.json). Template light High / CO2 on; tests vary light.surfacePar (100/200/320) and water.co2Ppm (5/25).",
+  "aquascapeWeb": "fda4d6c36297092c57d4e03586f61a89567ca978",
+  "tankPreset": "60p glass 60x30x36 cm, water column 32 cm (lib/compose/contract.ts TANK_PRESETS + parse.presetTank)",
+  "lightPar": {
+   "Low": 100,
+   "Medium": 200,
+   "High": 320
+  },
+  "co2Ppm": {
+   "off": 5,
+   "on": 25
+  }
+ },
+ "input": {
+  "tank": {
+   "widthCm": 60,
+   "depthCm": 30,
+   "heightCm": 32
+  },
+  "light": {
+   "surfacePar": 320,
+   "photoperiodH": 8,
+   "coverage": 0.85
+  },
+  "water": {
+   "temperatureC": 25,
+   "pH": 6.8,
+   "gh": 6,
+   "kh": 4,
+   "co2Ppm": 25
+  },
+  "dosing": {
+   "no3": 1.5,
+   "po4": 0.15,
+   "k": 1.5,
+   "fe": 0.02
+  },
+  "plants": [
+   {
+    "id": "heteranthera-zosterifolia-1",
+    "speciesId": "heteranthera-zosterifolia",
+    "x": -27.68,
+    "z": -1.1,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "heteranthera-zosterifolia-2",
+    "speciesId": "heteranthera-zosterifolia",
+    "x": -24.24,
+    "z": -7.93,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "heteranthera-zosterifolia-3",
+    "speciesId": "heteranthera-zosterifolia",
+    "x": -24.65,
+    "z": -4.09,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "heteranthera-zosterifolia-4",
+    "speciesId": "heteranthera-zosterifolia",
+    "x": -29,
+    "z": 0.21,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ammannia-gracilis-1",
+    "speciesId": "ammannia-gracilis",
+    "x": -17.67,
+    "z": -3.88,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ammannia-gracilis-2",
+    "speciesId": "ammannia-gracilis",
+    "x": -20.21,
+    "z": -2.09,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ammannia-gracilis-3",
+    "speciesId": "ammannia-gracilis",
+    "x": -14,
+    "z": -9.97,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ammannia-gracilis-4",
+    "speciesId": "ammannia-gracilis",
+    "x": -21.83,
+    "z": 3.08,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-corymbosa-1",
+    "speciesId": "hygrophila-corymbosa",
+    "x": -8.88,
+    "z": -8.07,
+    "y": 0,
+    "portions": 1
+   },
+   {
+    "id": "hygrophila-corymbosa-2",
+    "speciesId": "hygrophila-corymbosa",
+    "x": -12.69,
+    "z": -2.61,
+    "y": 0,
+    "portions": 1
+   },
+   {
+    "id": "rotala-macrandra-1",
+    "speciesId": "rotala-macrandra",
+    "x": -3.53,
+    "z": -3.04,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-macrandra-2",
+    "speciesId": "rotala-macrandra",
+    "x": 0.06,
+    "z": -7.51,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-macrandra-3",
+    "speciesId": "rotala-macrandra",
+    "x": -6.16,
+    "z": 2.35,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-macrandra-4",
+    "speciesId": "rotala-macrandra",
+    "x": -0.45,
+    "z": -9.05,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "pogostemon-erectus-1",
+    "speciesId": "pogostemon-erectus",
+    "x": 3.7,
+    "z": -1.91,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "pogostemon-erectus-2",
+    "speciesId": "pogostemon-erectus",
+    "x": 7.86,
+    "z": -8.22,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "pogostemon-erectus-3",
+    "speciesId": "pogostemon-erectus",
+    "x": 3.7,
+    "z": 0.07,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "pogostemon-erectus-4",
+    "speciesId": "pogostemon-erectus",
+    "x": 4.23,
+    "z": -4.77,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-1",
+    "speciesId": "alternanthera-reineckii",
+    "x": 12.46,
+    "z": -4.11,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-2",
+    "speciesId": "alternanthera-reineckii",
+    "x": 15.86,
+    "z": -7.36,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-3",
+    "speciesId": "alternanthera-reineckii",
+    "x": 9.63,
+    "z": 1.58,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-4",
+    "speciesId": "alternanthera-reineckii",
+    "x": 15.71,
+    "z": -9.81,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "limnophila-aromatica-1",
+    "speciesId": "limnophila-aromatica",
+    "x": 20.59,
+    "z": -4.47,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "limnophila-aromatica-2",
+    "speciesId": "limnophila-aromatica",
+    "x": 22.85,
+    "z": -5.83,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "limnophila-aromatica-3",
+    "speciesId": "limnophila-aromatica",
+    "x": 17.35,
+    "z": 1.17,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "limnophila-aromatica-4",
+    "speciesId": "limnophila-aromatica",
+    "x": 24.23,
+    "z": -10.7,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-sp-hra-1",
+    "speciesId": "rotala-sp-hra",
+    "x": 26.23,
+    "z": -0.32,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-sp-hra-2",
+    "speciesId": "rotala-sp-hra",
+    "x": 27.85,
+    "z": -4.71,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "rotala-sp-hra-3",
+    "speciesId": "rotala-sp-hra",
+    "x": 29,
+    "z": -4.24,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "staurogyne-repens-1",
+    "speciesId": "staurogyne-repens",
+    "x": -14.75,
+    "z": 9.74,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "staurogyne-repens-2",
+    "speciesId": "staurogyne-repens",
+    "x": -21.9,
+    "z": 11.33,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "staurogyne-repens-3",
+    "speciesId": "staurogyne-repens",
+    "x": -18.93,
+    "z": 9.47,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "staurogyne-repens-4",
+    "speciesId": "staurogyne-repens",
+    "x": -12.26,
+    "z": 10.42,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "staurogyne-repens-5",
+    "speciesId": "staurogyne-repens",
+    "x": -28.13,
+    "z": 11.4,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-mini-1",
+    "speciesId": "alternanthera-reineckii-mini",
+    "x": 0.37,
+    "z": 8.59,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-mini-2",
+    "speciesId": "alternanthera-reineckii-mini",
+    "x": 1.86,
+    "z": 9.5,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-mini-3",
+    "speciesId": "alternanthera-reineckii-mini",
+    "x": -4.29,
+    "z": 9.3,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "alternanthera-reineckii-mini-4",
+    "speciesId": "alternanthera-reineckii-mini",
+    "x": 4.75,
+    "z": 7.84,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "lobelia-cardinalis-mini-1",
+    "speciesId": "lobelia-cardinalis-mini",
+    "x": 17.38,
+    "z": 9.59,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "lobelia-cardinalis-mini-2",
+    "speciesId": "lobelia-cardinalis-mini",
+    "x": 17.86,
+    "z": 10.82,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "lobelia-cardinalis-mini-3",
+    "speciesId": "lobelia-cardinalis-mini",
+    "x": 11.75,
+    "z": 10.24,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "lobelia-cardinalis-mini-4",
+    "speciesId": "lobelia-cardinalis-mini",
+    "x": 23.81,
+    "z": 9.14,
+    "y": 0,
+    "portions": 2
+   }
+  ],
+  "species": {
+   "heteranthera-zosterifolia": {
+    "id": "heteranthera-zosterifolia",
+    "scientificName": "Heteranthera zosterifolia",
+    "family": "Pontederiaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Commelinales",
+     "family": "Pontederiaceae",
+     "genus": "Heteranthera",
+     "species": "zosterifolia"
+    },
+    "commonNames": {
+     "en": [
+      "Stargrass",
+      "Heteranthera zosterifolia"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "South America (Bolivia, Brazil)"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 70,
+      "max": 110,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 20,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 6,
+      "opt": 6.8,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 3,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 50,
+     "maxSpreadCm": 10,
+     "internodeCm": 3,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "light-green"
+    ],
+    "colorHex": "#6fb04a",
+    "sim": {
+     "k_photosynthesis": 1,
+     "k_light": 55,
+     "k_co2": 15,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "alternate",
+     "leafLengthCm": 3,
+     "leafWidthCm": 0.8,
+     "leafDensity": 0.7
+    },
+    "notes": "Bushy light-green stem with narrow translucent leaves; fast and easy. Pale green flowers if emersed. Stems get leggy with insufficient light.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "ammannia-gracilis": {
+    "id": "ammannia-gracilis",
+    "scientificName": "Ammannia gracilis",
+    "family": "Lythraceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Myrtales",
+     "family": "Lythraceae",
+     "genus": "Ammannia",
+     "species": "gracilis"
+    },
+    "commonNames": {
+     "en": [
+      "Ammannia gracilis",
+      "Delicate ammannia",
+      "Red ammannia"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Tropical Africa"
+    ],
+    "difficulty": 4,
+    "difficultyLabel": "hard",
+    "envelope": {
+     "light": {
+      "min": 60,
+      "opt": 100,
+      "max": 150,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 20,
+      "opt": 30,
+      "max": 40,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 22,
+      "opt": 25,
+      "max": 29
+     },
+     "pH": {
+      "min": 5,
+      "opt": 6.3,
+      "max": 7.2
+     },
+     "gh": {
+      "min": 1,
+      "opt": 4,
+      "max": 10
+     },
+     "kh": {
+      "min": 0,
+      "opt": 2,
+      "max": 6
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 45,
+     "maxSpreadCm": 10,
+     "internodeCm": 2,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background",
+     "midground"
+    ],
+    "colorRange": [
+     "green",
+     "orange-red-high-light"
+    ],
+    "colorHex": "#d4543a",
+    "sim": {
+     "k_photosynthesis": 0.9,
+     "k_light": 90,
+     "k_co2": 25,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 4,
+     "leafWidthCm": 0.8,
+     "leafDensity": 0.7,
+     "tipColorHex": "#e0583a"
+    },
+    "notes": "Delicate lance-shaped leaves on straight stems; turns orange to red under intense light with CO2 and low nitrate. Sensitive to unstable CO2, hard water and nutrient deficiency (leaf drop from the bottom). Aquarium requirements follow common hobbyist consensus.",
+    "images": [],
+    "citations": [
+     "kasselmann-2003-aquariumplants",
+     "graham-wain-2005-rotala",
+     "visual-estimate-2026"
+    ]
+   },
+   "hygrophila-corymbosa": {
+    "id": "hygrophila-corymbosa",
+    "scientificName": "Hygrophila corymbosa",
+    "family": "Acanthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Acanthaceae",
+     "genus": "Hygrophila",
+     "species": "corymbosa"
+    },
+    "commonNames": {
+     "en": [
+      "Temple plant",
+      "Giant hygro",
+      "Starhorn"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Southeast Asia — Malaysia, Indonesia, India"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 70,
+      "max": 150,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 20
+     },
+     "kh": {
+      "min": 1,
+      "opt": 5,
+      "max": 14
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "high",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 60,
+     "maxSpreadCm": 10,
+     "internodeCm": 3,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "dark-green",
+     "bronze-emersed"
+    ],
+    "colorHex": "#4a7a35",
+    "sim": {
+     "k_photosynthesis": 1.1,
+     "k_light": 50,
+     "k_co2": 12,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 12,
+     "leafWidthCm": 3,
+     "leafDensity": 0.6
+    },
+    "notes": "Large-leaved workhorse for background planting in low-tech and high-tech tanks alike. Multiple cultivars exist: 'Kompakt' stays compact at 20 cm; 'Siamensis' has narrower leaves. Emersed form develops bronze-purple leaves and large corymbs of purple flowers. Robust nitrogen uptake makes it an excellent tank cycling assistant.",
+    "images": [],
+    "citations": [
+     "tropica-hygrophila-corymbosa",
+     "flowgrow-hygrophila-corymbosa",
+     "cook-1996-aquatic-plant-book",
+     "visual-estimate-2026"
+    ]
+   },
+   "rotala-macrandra": {
+    "id": "rotala-macrandra",
+    "scientificName": "Rotala macrandra",
+    "family": "Lythraceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Myrtales",
+     "family": "Lythraceae",
+     "genus": "Rotala",
+     "species": "macrandra"
+    },
+    "commonNames": {
+     "en": [
+      "Giant red rotala",
+      "Macrandra"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "India"
+    ],
+    "difficulty": 4,
+    "difficultyLabel": "hard",
+    "envelope": {
+     "light": {
+      "min": 100,
+      "opt": 160,
+      "max": 240,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 25,
+      "opt": 35,
+      "max": 45,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 22,
+      "opt": 26,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.2,
+      "max": 7
+     },
+     "gh": {
+      "min": 2,
+      "opt": 5,
+      "max": 10
+     },
+     "kh": {
+      "min": 0,
+      "opt": 2,
+      "max": 5
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "high"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "high"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 40,
+     "maxSpreadCm": 8,
+     "internodeCm": 1.2,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "blood-red",
+     "pink-underside"
+    ],
+    "colorHex": "#b03246",
+    "sim": {
+     "k_photosynthesis": 0.7,
+     "k_light": 130,
+     "k_co2": 28,
+     "preferred_temp_c": 26,
+     "temp_tolerance_c": 2
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 5,
+     "leafWidthCm": 1.5,
+     "leafDensity": 0.7,
+     "tipColorHex": "#d8334a"
+    },
+    "notes": "True litmus test of a high-tech tank. Shade intolerance is severe — anything above it melts the lower leaves. Drops leaves with any CO2 interruption > 2 hours. Consider lean nitrogen (< 10 ppm NO3) for deepest red.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "tropica-rotala-macrandra",
+     "graham-wain-2005-rotala",
+     "visual-estimate-2026"
+    ]
+   },
+   "pogostemon-erectus": {
+    "id": "pogostemon-erectus",
+    "scientificName": "Pogostemon erectus",
+    "family": "Lamiaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Lamiaceae",
+     "genus": "Pogostemon",
+     "species": "erectus"
+    },
+    "commonNames": {
+     "en": [
+      "Pogostemon erectus",
+      "Pogostemon deccanensis",
+      "Indian star grass"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "India (Maharashtra, Western Ghats)"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 75,
+      "max": 120,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 20,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.5,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 3,
+      "max": 8
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 30,
+     "maxSpreadCm": 6,
+     "internodeCm": 1.5,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "bright-green"
+    ],
+    "colorHex": "#5faa3c",
+    "sim": {
+     "k_photosynthesis": 0.9,
+     "k_light": 60,
+     "k_co2": 18,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "needle",
+     "arrangement": "whorled",
+     "leafLengthCm": 2,
+     "leafWidthCm": 0.15,
+     "leafDensity": 0.8
+    },
+    "notes": "Compact groups of bright green, conifer-like stems 15-40 cm tall and 1-3 cm wide; Tropica lists medium growth and medium light/CO2, with intense light keeping it compact. Cut shoots root readily when replanted. Now often sold as P. deccanensis; older trade stock was labelled 'Rotala verticillaris'.",
+    "images": [],
+    "citations": [
+     "plantedaquaria-pogostemon-erectus",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "alternanthera-reineckii": {
+    "id": "alternanthera-reineckii",
+    "scientificName": "Alternanthera reineckii",
+    "family": "Amaranthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Caryophyllales",
+     "family": "Amaranthaceae",
+     "genus": "Alternanthera",
+     "species": "reineckii"
+    },
+    "commonNames": {
+     "en": [
+      "Scarlet temple",
+      "Red temple plant",
+      "Alternanthera reineckii"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "South America (Paraguay, Brazil)"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 50,
+      "opt": 85,
+      "max": 130,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 20,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 18,
+      "opt": 24,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.5,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 3,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 35,
+     "maxSpreadCm": 8,
+     "internodeCm": 2.5,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "red-violet",
+     "olive-low-light"
+    ],
+    "colorHex": "#8a3050",
+    "sim": {
+     "k_photosynthesis": 0.8,
+     "k_light": 70,
+     "k_co2": 20,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 5,
+     "leafWidthCm": 1.5,
+     "leafDensity": 0.65,
+     "tipColorHex": "#8a3050"
+    },
+    "notes": "Hardy red-violet stem plant; colour intensifies with strong light and iron. Green-olive in shade. Parent species of the 'Mini' cultivar.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "limnophila-aromatica": {
+    "id": "limnophila-aromatica",
+    "scientificName": "Limnophila aromatica",
+    "family": "Plantaginaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Plantaginaceae",
+     "genus": "Limnophila",
+     "species": "aromatica"
+    },
+    "commonNames": {
+     "en": [
+      "Limnophila aromatica",
+      "Rice paddy herb",
+      "Ambulia"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "South and Southeast Asia"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 65,
+      "max": 110,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 20,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 16
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 40,
+     "maxSpreadCm": 8,
+     "internodeCm": 3,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "green",
+     "purple-high-light"
+    ],
+    "colorHex": "#6aa84a",
+    "sim": {
+     "k_photosynthesis": 1,
+     "k_light": 55,
+     "k_co2": 15,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "whorled",
+     "leafLengthCm": 4,
+     "leafWidthCm": 1,
+     "leafDensity": 0.75
+    },
+    "notes": "Easy, fast stem with whorled leaves that turn purple-red underside and upper leaves under high light. Aromatic when crushed. Related to L. sessiliflora but broader-leaved and taller.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "rotala-sp-hra": {
+    "id": "rotala-sp-hra",
+    "scientificName": "Rotala sp. 'H'ra'",
+    "family": "Lythraceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Myrtales",
+     "family": "Lythraceae",
+     "genus": "Rotala",
+     "species": "sp.",
+     "cultivar": "H'ra"
+    },
+    "commonNames": {
+     "en": [
+      "Rotala H'ra",
+      "Rotala sp. 'Gia Lai'",
+      "Rotala rotundifolia 'H'ra'"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Vietnam (Gia Lai province)"
+    ],
+    "difficulty": 3,
+    "difficultyLabel": "medium",
+    "envelope": {
+     "light": {
+      "min": 60,
+      "opt": 100,
+      "max": 150,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 20,
+      "opt": 30,
+      "max": 40,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 29
+     },
+     "pH": {
+      "min": 5,
+      "opt": 6.3,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 5,
+      "max": 12
+     },
+     "kh": {
+      "min": 0,
+      "opt": 2,
+      "max": 6
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 40,
+     "maxSpreadCm": 5,
+     "internodeCm": 1.5,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "green",
+     "orange-red-high-light"
+    ],
+    "colorHex": "#e8803a",
+    "sim": {
+     "k_photosynthesis": 1,
+     "k_light": 70,
+     "k_co2": 22,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 2.5,
+     "leafWidthCm": 0.4,
+     "leafDensity": 0.7,
+     "tipColorHex": "#e8803a"
+    },
+    "notes": "Vietnamese Rotala collected near the H'Ra hamlet; fiery orange-red tips under high light, low nitrate and CO2 around 20-30 ppm, mostly green and gold in dim tanks. Fast, needs frequent trimming. Flowgrow lists tolerance 4-32 C (optimum 22-28), pH 4.5-7.5; light figures (about 80-120 PAR) come from hobby care guides. Treated by Flowgrow as a Rotala rotundifolia variant; unresolved taxonomically.",
+    "images": [],
+    "citations": [
+     "aquasabi-rotala-hra",
+     "flowgrow-rotala-hra",
+     "buceplant-rotala-hra",
+     "graham-wain-2005-rotala",
+     "visual-estimate-2026"
+    ]
+   },
+   "staurogyne-repens": {
+    "id": "staurogyne-repens",
+    "scientificName": "Staurogyne repens",
+    "family": "Acanthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Acanthaceae",
+     "genus": "Staurogyne",
+     "species": "repens"
+    },
+    "commonNames": {
+     "en": [
+      "Staurogyne repens",
+      "Creeping staurogyne"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "stem",
+    "origin": [
+     "Rio Cristalino, Brazil"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 80,
+      "max": 160,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 25,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.5,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 3,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 10,
+     "maxSpreadCm": 10,
+     "internodeCm": 0.7,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "foreground",
+     "midground"
+    ],
+    "colorRange": [
+     "green"
+    ],
+    "colorHex": "#5ea341",
+    "sim": {
+     "k_photosynthesis": 0.7,
+     "k_light": 55,
+     "k_co2": 18,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "ovate",
+     "arrangement": "opposite",
+     "leafLengthCm": 2.5,
+     "leafWidthCm": 1,
+     "leafDensity": 0.8
+    },
+    "notes": "Short bushy stem — frequently shelved as a rosette in retail, hence group = 'rosette' while growthForm = 'stem'. Top and re-plant to create a dense low hedge; side shoots multiply quickly under CO2.",
+    "images": [],
+    "citations": [
+     "tropica-staurogyne-repens",
+     "chayamarit-2010-staurogyne",
+     "kasselmann-2010-aquariumplants-2e",
+     "visual-estimate-2026"
+    ]
+   },
+   "alternanthera-reineckii-mini": {
+    "id": "alternanthera-reineckii-mini",
+    "scientificName": "Alternanthera reineckii 'Mini'",
+    "family": "Amaranthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Caryophyllales",
+     "family": "Amaranthaceae",
+     "genus": "Alternanthera",
+     "species": "reineckii",
+     "cultivar": "Mini"
+    },
+    "commonNames": {
+     "en": [
+      "Alternanthera reineckii 'Mini'",
+      "AR Mini",
+      "Mini red Alternanthera"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Cultivar"
+    ],
+    "difficulty": 3,
+    "difficultyLabel": "medium",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 75,
+      "max": 120,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 10,
+      "opt": 20,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 24,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.5,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 3,
+      "max": 8
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 10,
+     "maxSpreadCm": 8,
+     "internodeCm": 0.8,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "foreground",
+     "midground"
+    ],
+    "colorRange": [
+     "red-violet",
+     "olive-green-low-light"
+    ],
+    "colorHex": "#9a3b5c",
+    "sim": {
+     "k_photosynthesis": 0.7,
+     "k_light": 70,
+     "k_co2": 18,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 2,
+     "leafWidthCm": 0.5,
+     "leafDensity": 0.7,
+     "tipColorHex": "#9a3b5c"
+    },
+    "notes": "Miniature, compact form of A. reineckii; Tropica describes slower growth and, with careful trimming, a dense red-violet carpet of about 5-10 cm. Medium light/CO2 per retailer data quoting Tropica; stronger light and CO2 improve colour. Colour fades to olive in shade.",
+    "images": [],
+    "citations": [
+     "tropica-alternanthera-reineckii-mini",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "lobelia-cardinalis-mini": {
+    "id": "lobelia-cardinalis-mini",
+    "scientificName": "Lobelia cardinalis 'Mini'",
+    "family": "Campanulaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Asterales",
+     "family": "Campanulaceae",
+     "genus": "Lobelia",
+     "species": "cardinalis",
+     "cultivar": "Mini"
+    },
+    "commonNames": {
+     "en": [
+      "Dwarf cardinal flower",
+      "Lobelia cardinalis 'Mini'"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Americas (cultivar)"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 40,
+      "opt": 70,
+      "max": 120,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 5,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 18,
+      "opt": 23,
+      "max": 27
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 14
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 25,
+     "maxSpreadCm": 10,
+     "internodeCm": 3,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "green",
+     "red-purple-underside"
+    ],
+    "colorHex": "#6a8a3a",
+    "sim": {
+     "k_photosynthesis": 0.75,
+     "k_light": 50,
+     "k_co2": 12,
+     "preferred_temp_c": 23,
+     "temp_tolerance_c": 4
+    },
+    "visual": {
+     "leafShape": "ovate",
+     "arrangement": "alternate",
+     "leafLengthCm": 3.5,
+     "leafWidthCm": 1.3,
+     "leafDensity": 0.55,
+     "tipColorHex": "#8a4a4a"
+    },
+    "notes": "Compact cardinal flower with bright-green leaves and purplish undersides; better suited to cool tanks and weakens above ~26 C. Zh name is a descriptive trade rendering.",
+    "images": [],
+    "citations": [
+     "envelope-estimate-2026",
+     "visual-estimate-2026"
+    ]
+   }
+  },
+  "days": 90,
+  "seed": 2531886228,
+  "gridX": 32,
+  "substrate": {
+   "type": "aquasoil",
+   "reserve": 1
+  },
+  "lowLightPar": 30
+ }
+}

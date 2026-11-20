@@ -9,7 +9,7 @@ export * from "./contract";
 export * as algo from "./algo";
 export { createPrng } from "./prng";
 export type { Prng } from "./prng";
-export { Engine, envelopeAxis, canopyTransmission } from "./engine";
+export { Engine, envelopeAxis, lightEnvelopeAxis, LightAxis, canopyTransmission } from "./engine";
 
 import type { Frame, SimInput, SimResult, WorkerRequest, WorkerResponse } from "./contract";
 import { Engine, summarize } from "./engine";

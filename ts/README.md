@@ -41,7 +41,7 @@ transport; it yields to the event loop every `sliceMs` (default 8 ms) so that
 
 Also exported: `Engine` (step-wise driver; `substrateRemaining()` for diagnostics),
 `algo` namespace (the Python ports), `createPrng` (sfc32), `envelopeAxis`,
-`canopyTransmission`.
+`lightEnvelopeAxis` / `LightAxis` (contract 1.2.0 light axis), `canopyTransmission`.
 
 ## Coordinates & units
 
@@ -72,8 +72,21 @@ height (`y + heightCm`; floating plants sit at the surface) and each receives
 `parDailyMean = parAtPlant · photoperiodH / 24` (contract 1.1).
 
 **Fitness.** Botany `{min, opt, max}` envelopes become trapezoid `Axis`es with a
-plateau of ±30 % around `opt` (light: −30 % / +70 % — note: the light upper plateau deviates from contract `ENVELOPE_RULE`, kept as-is pending orchestrator decision). Fitness = `compat` (geometric
-mean) over light, co2, temperatureC, pH, gh, kh.
+plateau of ±30 % around `opt` (contract `ENVELOPE_RULE`). Light is a
+`LightAxis` (contract 1.2.0): plateau −30 % / +70 %, and above it the score
+ramps from 1 at optMax down to `LIGHT_UPPER_FLOOR` (0.75) at `light.max` and
+stays at 0.75 for any brighter PAR — botany `light.max` is the top of the
+husbandry range, not a lethal limit, so light alone never collapses fitness
+(0.75^(1/6) ≈ 0.95) or melts a plant (aquascape-sim#8). The lower side is the
+plain trapezoid. Fitness = `compat` (geometric mean) over light, co2,
+temperatureC, pH, gh, kh. `algo/envelope.ts` `Axis` stays the 1:1 Python
+port (parity tests); the Python engine has no botany light axis to mirror.
+
+**Light-response reference.** `test/fixtures/dutch60p.json` is the web app's
+Dutch Streets template on an ADA 60-P (60×30, 32 cm water column, 42
+placements, 11 stem species) as built by aquascape-web; `test/light-response.test.ts`
+checks contract `LIGHT_RESPONSE_INVARIANTS` on it at surface PAR 100/200/320
+and CO2 5/25 ppm.
 
 **Growth.** Carrying capacity `bMax = 0.02 g/cm³ · hTarget · π(spread/2)²` with
 `spread = maxSpreadCm · √portions`; plants start at 12 % of it. Daily
