@@ -9,10 +9,30 @@
  * Units: PAR µmol·m⁻²·s⁻¹, concentrations mg/L, CO2 ppm (mg/L), mass g, time days.
  */
 
-export const CONTRACT_VERSION = "1.2.0" as const;
+export const CONTRACT_VERSION = "1.3.0" as const;
 
 /*
  * Changelog
+ * 1.3.0 (2026-11-21) CO2 below the botany range no longer kills plants, and
+ *   CO2 acts through the growth rate (aquascape-sim#11: "no CO2" = 5 ppm was
+ *   below `co2.min` for most stems, so the CO2 axis scored 0 and plants melted
+ *   (Dutch 60-P: 35/22/31 melts with CO2 off vs 11/5/4 with CO2 on), while the
+ *   rate factor took max(free CO2 from pH/KH, co2Ppm) ≈ 31 ppm and so ignored
+ *   5 vs 25 ppm). Botany `co2.min` is the bottom of the recommended range:
+ *   demanding stems without injected CO2 stall and lose colour, they do not
+ *   melt within weeks.
+ *   - ENVELOPE_RULE: the CO2 axis lower side ramps from 1 at optMin down to
+ *     CO2_LOWER_FLOOR at `min` and stays there for every co2Ppm ≤ min. Its
+ *     upper side (0 at ≥ max) is unchanged, as is every other axis.
+ *   - CO2_RATE_RULE: the growth-rate CO2 factor is c / (c + kCo2) with
+ *     c = max(water.co2Ppm, CO2_BASELINE_PPM) and kCo2 = species sim.k_co2.
+ *     pH and KH no longer feed the rate factor (they keep their own envelope
+ *     axes). WaterInput.co2Ppm is the dissolved free CO2, mg/L.
+ *   - `algo/photosynthesis.ts` co2Response and `algo/envelope.ts` stay
+ *     untouched (1:1 Python parity port); the engine uses new functions.
+ *   - Output-affecting: CO2-off biomass changes (fewer melts, slower rate);
+ *     CO2-on changes slightly. Invariants: CO2_RESPONSE_INVARIANTS, and
+ *     LIGHT_RESPONSE_INVARIANTS must still hold.
  * 1.2.0 (2026-11-20) Light above the botany range no longer kills plants
  *   (aquascape-sim#8: at High light the tops of tall stems saw ~300 PAR, above
  *   `light.max`, so the light axis scored 0, fitness collapsed and day-90
@@ -50,12 +70,52 @@ export const CONTRACT_VERSION = "1.2.0" as const;
  *   1 on [optMin, optMax], linear ramp down from 1 at optMax to
  *   LIGHT_UPPER_FLOOR at max, and LIGHT_UPPER_FLOOR for every x ≥ max
  *   (never 0 on the high side).
+ *   CO2 axis (1.3.0): fitness = CO2_LOWER_FLOOR at x ≤ min, linear ramp up to
+ *   1 at optMin, 1 on [optMin, optMax], linear ramp down to 0 at max, 0 at
+ *   x ≥ max (never 0 on the low side).
  * Implementations that deviate must bump CONTRACT_VERSION.
  */
-export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7-floor" as const;
+export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7-floor-co2-lower-floor" as const;
 
 /** Light-axis score for PAR at or above the species' `light.max` (1.2.0). */
 export const LIGHT_UPPER_FLOOR = 0.75 as const;
+
+/** CO2-axis score for co2Ppm at or below the species' `co2.min` (1.3.0). */
+export const CO2_LOWER_FLOOR = 0.6 as const;
+
+/**
+ * Growth-rate CO2 factor (1.3.0): c / (c + kCo2), c = max(water.co2Ppm,
+ * CO2_BASELINE_PPM). The baseline stands for the CO2 a tank without injection
+ * still holds (air exchange, fish and bacterial respiration).
+ */
+export const CO2_RATE_RULE = "michaelis-menten-dissolved-co2-baseline-2" as const;
+export const CO2_BASELINE_PPM = 2 as const;
+
+/**
+ * Behavioural invariants every engine release must satisfy (1.3.0), checked by
+ * a "CO2 response" test suite. Dutch 60-P is the 1.2.0 reference scenario;
+ * Low-tech 60 is the web "nature-lowtech" template instantiated on
+ * 60×30×32 cm (build its fixture from the web's own code, like Dutch 60-P).
+ * CO2 off = 5 ppm, on = 25 ppm; B = total day-90 biomass; melts = "melt" events.
+ *   1. Dutch 60-P, each light level: melts(CO2 off) ≤ melts(CO2 on) + 2.
+ *   2. Dutch 60-P, Medium: 0.30 ≤ B(off) / B(on) ≤ 0.75 (CO2 matters a lot
+ *      for a stem-heavy Dutch tank, but it is not a cliff).
+ *   3. Low-tech 60, Low light: B(off) ≥ 0.70 × B(on) (low-tech species barely
+ *      care about injected CO2).
+ *   4. Monotone: every species alone at its envelope optimum (opt values for
+ *      light, temperature, pH, GH, KH) has day-30 biomass non-decreasing in
+ *      co2Ppm over {0, 2, 5, 10, 20} ∪ {opt} for values < co2.max.
+ *   5. No melt from CO2 below min alone: a plant whose only envelope score
+ *      < 1 is the CO2 axis on its lower side never melts in 90 days, even at
+ *      co2Ppm = 0.
+ */
+export const CO2_RESPONSE_INVARIANTS = [
+  "dutch60: melts(off) <= melts(on) + 2 at every light level",
+  "dutch60 medium: 0.30 <= B(off)/B(on) <= 0.75",
+  "lowtech60 low: B(off) >= 0.70 * B(on)",
+  "single species at opt: day-30 biomass non-decreasing in co2Ppm",
+  "no melt from co2 below min alone",
+] as const;
 
 /**
  * Behavioural invariants every engine release must satisfy (1.2.0), checked by
@@ -101,6 +161,7 @@ export interface WaterInput {
   gh: number;
   /** °dKH */
   kh: number;
+  /** dissolved free CO2, mg/L (1.3.0: the only CO2 input to growth rate) */
   co2Ppm: number;
 }
 
