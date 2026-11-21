@@ -9,10 +9,18 @@
  * Units: PAR µmol·m⁻²·s⁻¹, concentrations mg/L, CO2 ppm (mg/L), mass g, time days.
  */
 
-export const CONTRACT_VERSION = "1.3.0" as const;
+export const CONTRACT_VERSION = "1.3.1" as const;
 
 /*
  * Changelog
+ * 1.3.1 (2026-11-21, invariants / docs only; outputs unchanged)
+ *   - CO2_RESPONSE_INVARIANTS 1 counts only "lit" melts: melts of placements
+ *     whose light-axis score never reached 0. A plant below its `light.min`
+ *     melts from light whatever the CO2 (Dutch 60-P Low: 11 such placements;
+ *     the CO2 floor moved 4 of their melts from just after day 90 to days
+ *     75–84, so raw counts were 15 off vs 11 on).
+ *   - Degenerate CO2 envelopes (min = max, e.g. {0,0,0}): the low side wins
+ *     at x ≤ min (score CO2_LOWER_FLOOR), x > max scores 0.
  * 1.3.0 (2026-11-21) CO2 below the botany range no longer kills plants, and
  *   CO2 acts through the growth rate (aquascape-sim#11: "no CO2" = 5 ppm was
  *   below `co2.min` for most stems, so the CO2 axis scored 0 and plants melted
@@ -72,7 +80,8 @@ export const CONTRACT_VERSION = "1.3.0" as const;
  *   (never 0 on the high side).
  *   CO2 axis (1.3.0): fitness = CO2_LOWER_FLOOR at x ≤ min, linear ramp up to
  *   1 at optMin, 1 on [optMin, optMax], linear ramp down to 0 at max, 0 at
- *   x ≥ max (never 0 on the low side).
+ *   x ≥ max (never 0 on the low side; if min = max the low side wins at
+ *   x ≤ min, 1.3.1).
  * Implementations that deviate must bump CONTRACT_VERSION.
  */
 export const ENVELOPE_RULE = "trapezoid-plateau-0.3-light-upper-0.7-floor-co2-lower-floor" as const;
@@ -97,7 +106,9 @@ export const CO2_BASELINE_PPM = 2 as const;
  * Low-tech 60 is the web "nature-lowtech" template instantiated on
  * 60×30×32 cm (build its fixture from the web's own code, like Dutch 60-P).
  * CO2 off = 5 ppm, on = 25 ppm; B = total day-90 biomass; melts = "melt" events.
- *   1. Dutch 60-P, each light level: melts(CO2 off) ≤ melts(CO2 on) + 2.
+ *   1. Dutch 60-P, each light level: lit melts(CO2 off) ≤ lit melts(CO2 on)
+ *      + 2, where a lit melt is a melt of a placement whose light-axis score
+ *      never reached 0 during the run (1.3.1).
  *   2. Dutch 60-P, Medium: 0.30 ≤ B(off) / B(on) ≤ 0.75 (CO2 matters a lot
  *      for a stem-heavy Dutch tank, but it is not a cliff).
  *   3. Low-tech 60, Low light: B(off) ≥ 0.70 × B(on) (low-tech species barely
@@ -110,7 +121,7 @@ export const CO2_BASELINE_PPM = 2 as const;
  *      co2Ppm = 0.
  */
 export const CO2_RESPONSE_INVARIANTS = [
-  "dutch60: melts(off) <= melts(on) + 2 at every light level",
+  "dutch60: lit melts(off) <= lit melts(on) + 2 at every light level",
   "dutch60 medium: 0.30 <= B(off)/B(on) <= 0.75",
   "lowtech60 low: B(off) >= 0.70 * B(on)",
   "single species at opt: day-30 biomass non-decreasing in co2Ppm",

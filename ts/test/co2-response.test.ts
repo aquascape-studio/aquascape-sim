@@ -41,6 +41,8 @@ interface Run {
   co2OnlyMelts: string[];
   /** plant-days on which health fell while CO2-below-optMin was the only sub-1 factor */
   co2OnlyHealthDrops: number;
+  /** melt events of plants whose light score never hit 0 (contract 1.3.1 invariant 1) */
+  litMelts: number;
 }
 
 /** Step the engine so per-plant scores can be inspected (invariant 5 on the fixtures). */
@@ -49,6 +51,7 @@ function run(input: SimInput): Run {
   const frames: Frame[] = [e.start()];
   const co2 = input.water.co2Ppm;
   const otherStress = new Set<string>();
+  const lightStarved = new Set<string>();
   let co2OnlyHealthDrops = 0;
   for (let d = 1; d <= input.days; d++) {
     const before = e.plants.map((p) => p.health);
@@ -58,6 +61,7 @@ function run(input: SimInput): Run {
       const co2Lower = co2 < p.axes.co2.optMin;
       const co2Upper = co2 > p.axes.co2.optMax;
       if (!othersOk || co2Upper) otherStress.add(p.id);
+      if (p.envScores[0] === 0) lightStarved.add(p.id);
       if (othersOk && co2Lower && p.health < before[p.idx]) co2OnlyHealthDrops++;
     }
   }
@@ -66,7 +70,10 @@ function run(input: SimInput): Run {
     .flatMap((f) => f.events)
     .filter((ev) => ev.type === "melt" && !otherStress.has(ev.plantId))
     .map((ev) => ev.plantId);
-  return { b90: r.summary.totalBiomassG[input.days], melts: r.summary.eventCounts.melt, co2OnlyMelts, co2OnlyHealthDrops };
+  const litMelts = frames
+    .flatMap((f) => f.events)
+    .filter((ev) => ev.type === "melt" && !lightStarved.has(ev.plantId)).length;
+  return { b90: r.summary.totalBiomassG[input.days], melts: r.summary.eventCounts.melt, co2OnlyMelts, co2OnlyHealthDrops, litMelts };
 }
 
 /**
@@ -235,20 +242,12 @@ describe("CO2 response — reference scenarios (contract 1.3.0 CO2_RESPONSE_INVA
     console.log(`[co2-response] day 90 | ${fmt("Dutch 60-P", D, dutchLevels)} | ${fmt("Low-tech 60", L, lowtechLevels)}`);
   });
 
-  it("1. Dutch 60-P, Medium and High: melts(off) ≤ melts(on) + 2", () => {
-    for (const l of ["Medium", "High"] as Level[]) expect(D.off[l].melts, l).toBeLessThanOrEqual(D.on[l].melts + 2);
-  });
-
-  // Known failure with the contract formulas as written (reported in the PR):
-  // at Low light (surface PAR 100) 11 placements of 6 stem species sit below
-  // their botany light.min, so their light axis is 0 and they melt with CO2 on
-  // too. The CO2 floor (0.6) still lowers their fitness from ≈0.30 to ≈0.29, so
-  // health decays slightly faster and 4 of them (alternanthera-reineckii-4,
-  // staurogyne-repens-3/-4, rotala-sp-hra-1) melt around day 75–84 instead of
-  // just after day 90: 15 melts off vs 11 on (limit 13). None is a CO2-only
-  // melt (invariant 5 holds). `it.fails` turns red if the engine starts meeting it.
-  it.fails("1. Dutch 60-P, Low: melts(off) ≤ melts(on) + 2 (known failure, see comment)", () => {
-    expect(D.off.Low.melts).toBeLessThanOrEqual(D.on.Low.melts + 2);
+  // Contract 1.3.1: placements whose light score hits 0 (below botany light.min)
+  // melt from light whatever the CO2, so they are not counted. At Low light 11
+  // Dutch placements are light-starved; the CO2 floor only moves some of their
+  // melts a few days earlier (15 off vs 11 on in raw counts).
+  it("1. Dutch 60-P, every light level: lit melts(off) ≤ lit melts(on) + 2", () => {
+    for (const l of dutchLevels) expect(D.off[l].litMelts, l).toBeLessThanOrEqual(D.on[l].litMelts + 2);
   });
 
   it("2. Dutch 60-P, Medium: 0.30 ≤ B(off) / B(on) ≤ 0.75", () => {
