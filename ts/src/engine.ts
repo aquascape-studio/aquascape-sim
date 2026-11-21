@@ -13,7 +13,7 @@
  *   4. evaluate per-plant scores / limiting factors, raise events, emit frame.
  */
 
-import { LIGHT_UPPER_FLOOR } from "./contract";
+import { CO2_BASELINE_PPM, CO2_LOWER_FLOOR, LIGHT_UPPER_FLOOR } from "./contract";
 import type {
   Frame,
   LimitingFactor,
@@ -29,7 +29,7 @@ import type {
 import { Axis, compat } from "./algo/envelope";
 import { K_WATER, parAtDepth } from "./algo/light";
 import { Reservoir } from "./algo/nutrients";
-import { co2Response, piCurve, temperatureResponse } from "./algo/photosynthesis";
+import { piCurve, temperatureResponse } from "./algo/photosynthesis";
 import { createPrng } from "./prng";
 
 /* ------------------------------------------------------------------------ */
@@ -132,6 +132,45 @@ export class LightAxis extends Axis {
 export function lightEnvelopeAxis(e: { min: number; opt: number; max: number }): LightAxis {
   const a = envelopeAxis(e, 0.3, 0.7);
   return new LightAxis(a.min, a.optMin, a.optMax, a.max);
+}
+
+/**
+ * CO2 axis (contract 1.3.0 ENVELOPE_RULE): CO2_LOWER_FLOOR for every
+ * co2Ppm ≤ min, linear ramp up to 1 at optMin, 1 on [optMin, optMax], linear
+ * ramp down to 0 at max and 0 for co2Ppm > min with co2Ppm ≥ max. Botany `co2.min` is the bottom
+ * of the recommended range: demanding stems without injected CO2 stall, they
+ * do not melt (aquascape-sim#11). The upper side is the plain trapezoid.
+ */
+export class Co2Axis extends Axis {
+  override score(x: number): number {
+    // x ≤ min first: "never 0 on the low side" also for degenerate envelopes
+    // with min = max (e.g. floating plants with co2 {0, 0, 0}).
+    if (x <= this.min) return CO2_LOWER_FLOOR;
+    if (x >= this.max) return 0.0;
+    if (x < this.optMin) {
+      const t = (x - this.min) / Math.max(this.optMin - this.min, 1e-9);
+      return CO2_LOWER_FLOOR + (1.0 - CO2_LOWER_FLOOR) * t;
+    }
+    if (x <= this.optMax) return 1.0;
+    return (this.max - x) / Math.max(this.max - this.optMax, 1e-9);
+  }
+}
+
+/** {min, opt, max} CO2 envelope → Co2Axis (plateau 0.3 on both sides, floor at/below min). */
+export function co2EnvelopeAxis(e: { min: number; opt: number; max: number }): Co2Axis {
+  const a = envelopeAxis(e, 0.3, 0.3);
+  return new Co2Axis(a.min, a.optMin, a.optMax, a.max);
+}
+
+/**
+ * Growth-rate CO2 factor (contract 1.3.0 CO2_RATE_RULE): c / (c + kCo2) with
+ * c = max(co2Ppm, CO2_BASELINE_PPM). pH / KH do not enter (they keep their own
+ * envelope axes). `algo/photosynthesis.ts` co2Response (pH/KH-derived free CO2)
+ * stays as the 1:1 Python parity port and is no longer used by the engine.
+ */
+export function co2RateFactor(co2Ppm: number, kCo2: number): number {
+  const c = Math.max(Number.isFinite(co2Ppm) ? co2Ppm : 0, CO2_BASELINE_PPM);
+  return c / (c + Math.max(1e-9, kCo2));
 }
 
 /** Canopy transmission for an overhead load of `loadGPerCm2` g/cm². */
@@ -300,7 +339,12 @@ export class Engine {
     const bMax = Math.max(0.5, BIOMASS_DENSITY * hTarget * Math.PI * (sMax / 2) ** 2);
     const axes: Record<string, Axis> = {};
     // Light: wider upper plateau (0.7) and a LIGHT_UPPER_FLOOR above max (contract 1.2.0).
-    for (const k of ENV_KEYS) axes[k] = k === "light" ? lightEnvelopeAxis(sp.envelope[k]) : envelopeAxis(sp.envelope[k]);
+    // CO2: CO2_LOWER_FLOOR at/below min (contract 1.3.0).
+    for (const k of ENV_KEYS) {
+      axes[k] = k === "light" ? lightEnvelopeAxis(sp.envelope[k])
+        : k === "co2" ? co2EnvelopeAxis(sp.envelope[k])
+        : envelopeAxis(sp.envelope[k]);
+    }
     const macros = sp.nutrients.macros ?? {};
     const micros = sp.nutrients.micros ?? {};
     const dm = (s: string | undefined) => DEMAND_MULT[s ?? "medium"] ?? 1;
@@ -457,7 +501,7 @@ export class Engine {
 
     for (const p of this.plants) {
       const lightF = piCurve(p.par, 1 / p.kLight, 1.0);
-      const co2F = co2Response(w.co2Ppm, w.pH, w.kh, p.kCo2);
+      const co2F = co2RateFactor(w.co2Ppm, p.kCo2);
       const tempF = Math.min(1, temperatureResponse(w.temperatureC, p.tOpt, 2.0, p.tTol));
       const vigor =
         lightF * co2F * tempF * p.fitness * p.nutLim * p.health * Math.sqrt(p.space) * this.photoScale * p.jitter;

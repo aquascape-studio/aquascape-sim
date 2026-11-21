@@ -1,0 +1,2199 @@
+{
+ "provenance": {
+  "description": "Low-tech 60 reference scenario (contract 1.3.0 CO2_RESPONSE_INVARIANTS). SimInput exactly as aquascape-web builds it for the Nature Low tech template on a 60x30x32 cm water column: buildTemplateInput(getTemplate('nature-lowtech'), {w:60,d:30,h:32}, lib/sim/vendor/plants.json), species filtered to those placed. Template light Low / CO2 off; tests vary light.surfacePar (100/200) and water.co2Ppm (5/25).",
+  "aquascapeWeb": "b97ab61f8033a992dc05123e993e0a16ee60c270",
+  "generator": "vite-node script in a detached worktree of aquascape-web origin/main; the same script reproduces test/fixtures/dutch60p.json input exactly",
+  "lightPar": {
+   "Low": 100,
+   "Medium": 200
+  },
+  "co2Ppm": {
+   "off": 5,
+   "on": 25
+  }
+ },
+ "input": {
+  "tank": {
+   "widthCm": 60,
+   "depthCm": 30,
+   "heightCm": 32
+  },
+  "light": {
+   "surfacePar": 100,
+   "photoperiodH": 8,
+   "coverage": 0.85
+  },
+  "water": {
+   "temperatureC": 25,
+   "pH": 6.8,
+   "gh": 6,
+   "kh": 4,
+   "co2Ppm": 5
+  },
+  "dosing": {
+   "no3": 1.5,
+   "po4": 0.15,
+   "k": 1.5,
+   "fe": 0.02
+  },
+  "plants": [
+   {
+    "id": "vallisneria-spiralis-1",
+    "speciesId": "vallisneria-spiralis",
+    "x": -24.21,
+    "z": -12.29,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "vallisneria-spiralis-2",
+    "speciesId": "vallisneria-spiralis",
+    "x": -21.88,
+    "z": -10.77,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "vallisneria-spiralis-3",
+    "speciesId": "vallisneria-spiralis",
+    "x": -27.28,
+    "z": -11.09,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "vallisneria-spiralis-4",
+    "speciesId": "vallisneria-spiralis",
+    "x": -21.07,
+    "z": -13.2,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "vallisneria-spiralis-5",
+    "speciesId": "vallisneria-spiralis",
+    "x": -22.91,
+    "z": -9.1,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-corymbosa-siamensis-53b-1",
+    "speciesId": "hygrophila-corymbosa-siamensis-53b",
+    "x": -12.69,
+    "z": -10.74,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-corymbosa-siamensis-53b-2",
+    "speciesId": "hygrophila-corymbosa-siamensis-53b",
+    "x": -13.36,
+    "z": -12.57,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-corymbosa-siamensis-53b-3",
+    "speciesId": "hygrophila-corymbosa-siamensis-53b",
+    "x": -7.76,
+    "z": -10.95,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-corymbosa-siamensis-53b-4",
+    "speciesId": "hygrophila-corymbosa-siamensis-53b",
+    "x": -16.22,
+    "z": -10.5,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-balansae-1",
+    "speciesId": "cryptocoryne-balansae",
+    "x": 0.12,
+    "z": -10.54,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-balansae-2",
+    "speciesId": "cryptocoryne-balansae",
+    "x": 2.48,
+    "z": -12.62,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-balansae-3",
+    "speciesId": "cryptocoryne-balansae",
+    "x": 4.07,
+    "z": -9.66,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ludwigia-palustris-1",
+    "speciesId": "ludwigia-palustris",
+    "x": 13.59,
+    "z": -9.85,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ludwigia-palustris-2",
+    "speciesId": "ludwigia-palustris",
+    "x": 10.73,
+    "z": -11.88,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "ludwigia-palustris-3",
+    "speciesId": "ludwigia-palustris",
+    "x": 17.12,
+    "z": -11.02,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-difformis-1",
+    "speciesId": "hygrophila-difformis",
+    "x": 22.1,
+    "z": -10.39,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-difformis-2",
+    "speciesId": "hygrophila-difformis",
+    "x": 26.81,
+    "z": -11.59,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "hygrophila-difformis-3",
+    "speciesId": "hygrophila-difformis",
+    "x": 23.1,
+    "z": -8.18,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "taxiphyllum-barbieri-1",
+    "speciesId": "taxiphyllum-barbieri",
+    "x": -9.85,
+    "z": -0.25,
+    "y": 14.6,
+    "portions": 1
+   },
+   {
+    "id": "taxiphyllum-barbieri-2",
+    "speciesId": "taxiphyllum-barbieri",
+    "x": -11.98,
+    "z": 1.26,
+    "y": 18.13,
+    "portions": 1
+   },
+   {
+    "id": "taxiphyllum-barbieri-3",
+    "speciesId": "taxiphyllum-barbieri",
+    "x": -18.17,
+    "z": -0.09,
+    "y": 15.96,
+    "portions": 1
+   },
+   {
+    "id": "microsorum-pteropus-1",
+    "speciesId": "microsorum-pteropus",
+    "x": 5.62,
+    "z": -0.74,
+    "y": 15.36,
+    "portions": 1
+   },
+   {
+    "id": "microsorum-pteropus-2",
+    "speciesId": "microsorum-pteropus",
+    "x": 2.15,
+    "z": -0.93,
+    "y": 7.64,
+    "portions": 1
+   },
+   {
+    "id": "anubias-barteri-nana-1",
+    "speciesId": "anubias-barteri-nana",
+    "x": -19.29,
+    "z": 6.58,
+    "y": 2.78,
+    "portions": 1
+   },
+   {
+    "id": "anubias-barteri-nana-2",
+    "speciesId": "anubias-barteri-nana",
+    "x": -21.74,
+    "z": 7.23,
+    "y": 2.49,
+    "portions": 1
+   },
+   {
+    "id": "bucephalandra-sp-mini-1",
+    "speciesId": "bucephalandra-sp-mini",
+    "x": 13.88,
+    "z": 7.48,
+    "y": 1.39,
+    "portions": 1
+   },
+   {
+    "id": "cryptocoryne-wendtii-1",
+    "speciesId": "cryptocoryne-wendtii",
+    "x": -22.75,
+    "z": -2.65,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-2",
+    "speciesId": "cryptocoryne-wendtii",
+    "x": -20.25,
+    "z": -0.57,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-3",
+    "speciesId": "cryptocoryne-wendtii",
+    "x": -28.18,
+    "z": -1.58,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-green-gecko-1",
+    "speciesId": "cryptocoryne-wendtii-green-gecko",
+    "x": 18.9,
+    "z": -2.4,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-green-gecko-2",
+    "speciesId": "cryptocoryne-wendtii-green-gecko",
+    "x": 23.72,
+    "z": -1.09,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-green-gecko-3",
+    "speciesId": "cryptocoryne-wendtii-green-gecko",
+    "x": 16.62,
+    "z": -0.79,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-wendtii-green-gecko-4",
+    "speciesId": "cryptocoryne-wendtii-green-gecko",
+    "x": 22.11,
+    "z": -4.15,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-1",
+    "speciesId": "marsilea-hirsuta",
+    "x": 3.16,
+    "z": 11.74,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-2",
+    "speciesId": "marsilea-hirsuta",
+    "x": 0.93,
+    "z": 12.95,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-3",
+    "speciesId": "marsilea-hirsuta",
+    "x": -6.78,
+    "z": 11.31,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-4",
+    "speciesId": "marsilea-hirsuta",
+    "x": 13.47,
+    "z": 12.15,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-5",
+    "speciesId": "marsilea-hirsuta",
+    "x": -10.48,
+    "z": 12.69,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-6",
+    "speciesId": "marsilea-hirsuta",
+    "x": 3.91,
+    "z": 10.3,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "marsilea-hirsuta-7",
+    "speciesId": "marsilea-hirsuta",
+    "x": 8.53,
+    "z": 13.47,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-lutea-1",
+    "speciesId": "cryptocoryne-lutea",
+    "x": 22.75,
+    "z": 10.3,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-lutea-2",
+    "speciesId": "cryptocoryne-lutea",
+    "x": 21.17,
+    "z": 7.38,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-lutea-3",
+    "speciesId": "cryptocoryne-lutea",
+    "x": 26.8,
+    "z": 9.56,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-lutea-4",
+    "speciesId": "cryptocoryne-lutea",
+    "x": 18.51,
+    "z": 10.52,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-beckettii-1",
+    "speciesId": "cryptocoryne-beckettii",
+    "x": -15.33,
+    "z": 12.6,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-beckettii-2",
+    "speciesId": "cryptocoryne-beckettii",
+    "x": -16.39,
+    "z": 10.85,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-beckettii-3",
+    "speciesId": "cryptocoryne-beckettii",
+    "x": -8.97,
+    "z": 12.57,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "cryptocoryne-beckettii-4",
+    "speciesId": "cryptocoryne-beckettii",
+    "x": -22.01,
+    "z": 12.41,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-1",
+    "speciesId": "sagittaria-subulata",
+    "x": -2.1,
+    "z": 9.02,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-2",
+    "speciesId": "sagittaria-subulata",
+    "x": -2.03,
+    "z": 7.28,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-3",
+    "speciesId": "sagittaria-subulata",
+    "x": 9.27,
+    "z": 9.02,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-4",
+    "speciesId": "sagittaria-subulata",
+    "x": -15.03,
+    "z": 8.68,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-5",
+    "speciesId": "sagittaria-subulata",
+    "x": 9.86,
+    "z": 6.8,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-6",
+    "speciesId": "sagittaria-subulata",
+    "x": 2.33,
+    "z": 10.2,
+    "y": 0,
+    "portions": 2
+   },
+   {
+    "id": "sagittaria-subulata-7",
+    "speciesId": "sagittaria-subulata",
+    "x": -13.55,
+    "z": 6.96,
+    "y": 0,
+    "portions": 2
+   }
+  ],
+  "species": {
+   "vallisneria-spiralis": {
+    "id": "vallisneria-spiralis",
+    "scientificName": "Vallisneria spiralis",
+    "family": "Hydrocharitaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Hydrocharitaceae",
+     "genus": "Vallisneria",
+     "species": "spiralis"
+    },
+    "commonNames": {
+     "en": [
+      "Vallisneria",
+      "Eelgrass",
+      "Tape grass"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Southern Europe, Asia, Africa"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 25,
+      "opt": 55,
+      "max": 100,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 15,
+      "opt": 24,
+      "max": 30
+     },
+     "pH": {
+      "min": 6,
+      "opt": 7.2,
+      "max": 8.5
+     },
+     "gh": {
+      "min": 4,
+      "opt": 10,
+      "max": 20
+     },
+     "kh": {
+      "min": 3,
+      "opt": 6,
+      "max": 15
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 60,
+     "maxSpreadCm": 30,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "green"
+    ],
+    "colorHex": "#4f9a3a",
+    "sim": {
+     "k_photosynthesis": 0.8,
+     "k_light": 40,
+     "k_co2": 10,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 5
+    },
+    "visual": {
+     "leafShape": "strap",
+     "arrangement": "rosette",
+     "leafLengthCm": 45,
+     "leafWidthCm": 1,
+     "leafDensity": 0.5
+    },
+    "notes": "Tall ribbon leaves for the back or sides of a tank; spreads quickly by runners. Prefers harder, alkaline water; may melt in very soft acidic tanks. Taxonomy is complex (V. spiralis / V. americana / V. natans are often confused in trade).",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "visual-vallisneria-trade"
+    ]
+   },
+   "hygrophila-corymbosa-siamensis-53b": {
+    "id": "hygrophila-corymbosa-siamensis-53b",
+    "scientificName": "Hygrophila corymbosa 'Siamensis 53B'",
+    "family": "Acanthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Acanthaceae",
+     "genus": "Hygrophila",
+     "species": "corymbosa",
+     "cultivar": "Siamensis 53B"
+    },
+    "commonNames": {
+     "en": [
+      "Hygrophila 'Siamensis 53B'",
+      "Siamese hygrophila"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Southeast Asia (cultivar)"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 40,
+      "max": 90,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 28
+     },
+     "pH": {
+      "min": 6,
+      "opt": 6.8,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 3,
+      "opt": 8,
+      "max": 15
+     },
+     "kh": {
+      "min": 2,
+      "opt": 4,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 45,
+     "maxSpreadCm": 12,
+     "internodeCm": 3,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "light-green"
+    ],
+    "colorHex": "#7ab04e",
+    "sim": {
+     "k_photosynthesis": 0.9,
+     "k_light": 26,
+     "k_co2": 6,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "opposite",
+     "leafLengthCm": 7,
+     "leafWidthCm": 1.8,
+     "leafDensity": 0.6
+    },
+    "notes": "Narrower-leaved, vigorous form of Hygrophila corymbosa; Tropica lists 15-30+ cm after two months, low light and low CO2 demand. Iron deficiency (pale leaves) can show if light is high.",
+    "images": [],
+    "citations": [
+     "tropica-hygrophila-siamensis-53b",
+     "envelope-estimate-2026",
+     "visual-estimate-2026"
+    ]
+   },
+   "cryptocoryne-balansae": {
+    "id": "cryptocoryne-balansae",
+    "scientificName": "Cryptocoryne crispatula var. balansae",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Cryptocoryne",
+     "species": "crispatula",
+     "cultivar": "var. balansae"
+    },
+    "commonNames": {
+     "en": [
+      "Balansae crypt",
+      "Ruffled cryptocoryne"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Thailand, Laos, Vietnam"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "medium",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 60,
+      "max": 130,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 5,
+      "opt": 20,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 22,
+      "opt": 26,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 1,
+      "opt": 5,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "low"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 50,
+     "maxSpreadCm": 10,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "dark-green",
+     "ruffled-green"
+    ],
+    "colorHex": "#3d6e2a",
+    "sim": {
+     "k_photosynthesis": 0.55,
+     "k_light": 45,
+     "k_co2": 15,
+     "preferred_temp_c": 26,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "strap",
+     "arrangement": "rosette",
+     "leafLengthCm": 30,
+     "leafWidthCm": 1.5,
+     "leafDensity": 0.5
+    },
+    "notes": "Produces dramatically long, narrow leaves with strongly crinkled margins — a distinctive background plant. Tolerates moderate currents. Like most crypts it is a heavy root feeder; root tabs significantly improve growth rate and leaf texture.",
+    "images": [],
+    "citations": [
+     "jacobsen-1980-cryptocoryne-srilanka",
+     "tropica-cryptocoryne-balansae",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "ludwigia-palustris": {
+    "id": "ludwigia-palustris",
+    "scientificName": "Ludwigia palustris",
+    "family": "Onagraceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Myrtales",
+     "family": "Onagraceae",
+     "genus": "Ludwigia",
+     "species": "palustris"
+    },
+    "commonNames": {
+     "en": [
+      "Marsh seedbox",
+      "Water purslane"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "Cosmopolitan — Europe, Asia, Americas, Africa"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 70,
+      "max": 150,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 15,
+      "opt": 22,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 7,
+      "max": 20
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 14
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "high",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 30,
+     "maxSpreadCm": 5,
+     "internodeCm": 1.5,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "midground",
+     "background"
+    ],
+    "colorRange": [
+     "green-top",
+     "red-underside",
+     "red-high-light"
+    ],
+    "colorHex": "#a03e3e",
+    "sim": {
+     "k_photosynthesis": 0.9,
+     "k_light": 52,
+     "k_co2": 14,
+     "preferred_temp_c": 22,
+     "temp_tolerance_c": 4.5
+    },
+    "visual": {
+     "leafShape": "ovate",
+     "arrangement": "opposite",
+     "leafLengthCm": 2.5,
+     "leafWidthCm": 1.3,
+     "leafDensity": 0.65,
+     "tipColorHex": "#c0504a"
+    },
+    "notes": "Compact companion to L. repens; smaller leaf size (0.5–2 cm) makes it suit midground placement better. Red underside develops reliably without CO2 injection under moderate to high PAR. The cosmopolitan distribution is unusually broad for a Ludwigia — native on six continents. Tolerates cooler water better than most tropical stem plants.",
+    "images": [],
+    "citations": [
+     "tropica-ludwigia-palustris",
+     "dennerle-ludwigia-palustris",
+     "peng-1989-ludwigia-revision",
+     "fna-ludwigia-palustris"
+    ]
+   },
+   "hygrophila-difformis": {
+    "id": "hygrophila-difformis",
+    "scientificName": "Hygrophila difformis",
+    "family": "Acanthaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Magnoliopsida",
+     "order": "Lamiales",
+     "family": "Acanthaceae",
+     "genus": "Hygrophila",
+     "species": "difformis"
+    },
+    "commonNames": {
+     "en": [
+      "Water wisteria",
+      "Wisteria",
+      "Hygrophila difformis"
+     ]
+    },
+    "group": "stem",
+    "growthForm": "stem",
+    "origin": [
+     "India, Southeast Asia"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 60,
+      "max": 110,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 5,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 16
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 40,
+     "maxSpreadCm": 20,
+     "internodeCm": 4,
+     "propagation": [
+      "topping",
+      "side-shoots"
+     ]
+    },
+    "placement": [
+     "background"
+    ],
+    "colorRange": [
+     "light-green"
+    ],
+    "colorHex": "#7cc05a",
+    "sim": {
+     "k_photosynthesis": 1,
+     "k_light": 45,
+     "k_co2": 12,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 4
+    },
+    "visual": {
+     "leafShape": "ovate",
+     "arrangement": "opposite",
+     "leafLengthCm": 10,
+     "leafWidthCm": 6,
+     "leafDensity": 0.5
+    },
+    "notes": "Fast, easy stem with deeply lobed, maple-like submerged leaves (emersed leaves are entire). Needs regular trimming and nitrogen to avoid leaf melt.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "taxiphyllum-barbieri": {
+    "id": "taxiphyllum-barbieri",
+    "scientificName": "Taxiphyllum barbieri",
+    "family": "Hypnaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Bryophyta",
+     "class": "Bryopsida",
+     "order": "Hypnales",
+     "family": "Hypnaceae",
+     "genus": "Taxiphyllum",
+     "species": "barbieri"
+    },
+    "commonNames": {
+     "en": [
+      "Java moss",
+      "Bogor moss"
+     ]
+    },
+    "group": "moss",
+    "growthForm": "moss",
+    "origin": [
+     "Southeast Asia"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 10,
+      "opt": 40,
+      "max": 120,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 15,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 15,
+      "opt": 23,
+      "max": 28
+     },
+     "pH": {
+      "min": 5,
+      "opt": 6.8,
+      "max": 8
+     },
+     "gh": {
+      "min": 1,
+      "opt": 6,
+      "max": 16
+     },
+     "kh": {
+      "min": 0,
+      "opt": 4,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "low",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "low",
+      "traceDemand": "low"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 4,
+     "maxSpreadCm": 30,
+     "internodeCm": null,
+     "propagation": [
+      "fragmentation"
+     ]
+    },
+    "placement": [
+     "attached",
+     "midground",
+     "foreground"
+    ],
+    "colorRange": [
+     "medium-green"
+    ],
+    "colorHex": "#5a8a3c",
+    "sim": {
+     "k_photosynthesis": 0.4,
+     "k_light": 30,
+     "k_co2": 10,
+     "preferred_temp_c": 23,
+     "temp_tolerance_c": 5
+    },
+    "visual": {
+     "leafShape": "moss",
+     "arrangement": "mat",
+     "leafLengthCm": 0.3,
+     "leafWidthCm": 0.1,
+     "leafDensity": 1
+    },
+    "notes": "Historically mislabeled as Vesicularia dubyana. Tolerates anything short of scalding temperatures; growth becomes stringy above 27°C. Trim on a schedule to prevent detritus traps.",
+    "images": [],
+    "citations": [
+     "tan-2003-taxiphyllum-barbieri",
+     "tropica-taxiphyllum-barbieri",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "microsorum-pteropus": {
+    "id": "microsorum-pteropus",
+    "scientificName": "Microsorum pteropus",
+    "family": "Polypodiaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Polypodiopsida",
+     "order": "Polypodiales",
+     "family": "Polypodiaceae",
+     "genus": "Microsorum",
+     "species": "pteropus"
+    },
+    "commonNames": {
+     "en": [
+      "Java fern",
+      "Microsorum pteropus"
+     ]
+    },
+    "group": "epiphyte",
+    "growthForm": "epiphyte",
+    "origin": [
+     "Southeast Asia"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 40,
+      "max": 90,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 18,
+      "opt": 24,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 8
+     },
+     "gh": {
+      "min": 3,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "low",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "low",
+      "traceDemand": "low"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 30,
+     "maxSpreadCm": 25,
+     "internodeCm": null,
+     "propagation": [
+      "adventitious-plantlets",
+      "rhizome-division"
+     ]
+    },
+    "placement": [
+     "attached",
+     "midground"
+    ],
+    "colorRange": [
+     "green"
+    ],
+    "colorHex": "#2f6a34",
+    "sim": {
+     "k_photosynthesis": 0.35,
+     "k_light": 26,
+     "k_co2": 6,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "alternate",
+     "leafLengthCm": 20,
+     "leafWidthCm": 3,
+     "leafDensity": 0.35
+    },
+    "notes": "Standard Java fern; Tropica's species entry is cited by retailers at 15-30 cm. Rhizome must not be buried. Grows new plantlets on old leaves.",
+    "images": [],
+    "citations": [
+     "aquasabi-microsorum-pteropus",
+     "flowgrow-microsorum-pteropus",
+     "envelope-estimate-2026",
+     "visual-estimate-2026"
+    ]
+   },
+   "anubias-barteri-nana": {
+    "id": "anubias-barteri-nana",
+    "scientificName": "Anubias barteri var. nana",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Anubias",
+     "species": "barteri",
+     "cultivar": "var. nana"
+    },
+    "commonNames": {
+     "en": [
+      "Anubias nana",
+      "Dwarf anubias"
+     ]
+    },
+    "group": "epiphyte",
+    "growthForm": "epiphyte",
+    "origin": [
+     "Cameroon, West Africa"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 15,
+      "opt": 40,
+      "max": 100,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 30
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 1,
+      "opt": 5,
+      "max": 14
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "low",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "low",
+      "traceDemand": "low"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 12,
+     "maxSpreadCm": 15,
+     "internodeCm": null,
+     "propagation": [
+      "rhizome-division"
+     ]
+    },
+    "placement": [
+     "attached",
+     "midground",
+     "foreground"
+    ],
+    "colorRange": [
+     "dark-green"
+    ],
+    "colorHex": "#2f5d34",
+    "sim": {
+     "k_photosynthesis": 0.3,
+     "k_light": 22,
+     "k_co2": 5,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 4
+    },
+    "visual": {
+     "leafShape": "ovate",
+     "arrangement": "alternate",
+     "leafLengthCm": 6,
+     "leafWidthCm": 3,
+     "leafDensity": 0.3
+    },
+    "notes": "Bomb-proof dwarf anubias for low-light tanks; rhizome must not be buried. Slow growth makes it prone to algae on leaves in high light - keep light moderate. The 'Petite' cultivar is listed separately.",
+    "images": [],
+    "citations": [
+     "crusio-1987-anubias",
+     "kasselmann-2003-aquariumplants",
+     "visual-cate-anubias-nana"
+    ]
+   },
+   "bucephalandra-sp-mini": {
+    "id": "bucephalandra-sp-mini",
+    "scientificName": "Bucephalandra sp. 'Mini'",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Bucephalandra",
+     "species": "sp.",
+     "cultivar": "Mini"
+    },
+    "commonNames": {
+     "en": [
+      "Bucephalandra sp. 'Mini'",
+      "Mini buce"
+     ]
+    },
+    "group": "epiphyte",
+    "growthForm": "epiphyte",
+    "origin": [
+     "Borneo, Indonesia / Malaysia"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 15,
+      "opt": 40,
+      "max": 100,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 25,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 21,
+      "opt": 25,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 1,
+      "opt": 5,
+      "max": 12
+     },
+     "kh": {
+      "min": 0,
+      "opt": 3,
+      "max": 8
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "low",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "low",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": false,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 6,
+     "maxSpreadCm": 10,
+     "internodeCm": null,
+     "propagation": [
+      "rhizome-division"
+     ]
+    },
+    "placement": [
+     "attached",
+     "foreground"
+    ],
+    "colorRange": [
+     "dark-green",
+     "blue-sheen"
+    ],
+    "colorHex": "#3d5a40",
+    "sim": {
+     "k_photosynthesis": 0.3,
+     "k_light": 25,
+     "k_co2": 8,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 2.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "alternate",
+     "leafLengthCm": 2.5,
+     "leafWidthCm": 1,
+     "leafDensity": 0.45
+    },
+    "notes": "Small rheophytic Bornean aroid grown attached to rock or wood; low to moderate light (excess light invites algae), stable temperatures (swings cause leaf loss). Hundreds of unnamed local forms are sold as Bucephalandra sp.; values are genus-level and not specific to one locality. Complements the existing 'Kedagang' entry.",
+    "images": [],
+    "citations": [
+     "aquasabi-bucephalandra-mini",
+     "buceplant-bucephalandra-lighting",
+     "wongso-2013-bucephalandra",
+     "visual-estimate-2026"
+    ]
+   },
+   "cryptocoryne-wendtii": {
+    "id": "cryptocoryne-wendtii",
+    "scientificName": "Cryptocoryne wendtii",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Cryptocoryne",
+     "species": "wendtii"
+    },
+    "commonNames": {
+     "en": [
+      "Wendt's cryptocoryne",
+      "Crypt wendtii"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Sri Lanka"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 50,
+      "max": 120,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 15,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 25,
+      "max": 29
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 1,
+      "opt": 5,
+      "max": 14
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 20,
+     "maxSpreadCm": 20,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "midground"
+    ],
+    "colorRange": [
+     "green",
+     "brown",
+     "bronze"
+    ],
+    "colorHex": "#6b6b2e",
+    "sim": {
+     "k_photosynthesis": 0.55,
+     "k_light": 35,
+     "k_co2": 12,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "rosette",
+     "leafLengthCm": 12,
+     "leafWidthCm": 3,
+     "leafDensity": 0.5
+    },
+    "notes": "Expect 'crypt melt' after any major water-parameter change — leaves dissolve, rhizome survives, new growth follows in 2-3 weeks. Nutrient-rich substrate strongly recommended.",
+    "images": [],
+    "citations": [
+     "tropica-cryptocoryne-wendtii",
+     "jacobsen-1980-cryptocoryne-srilanka",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "cryptocoryne-wendtii-green-gecko": {
+    "id": "cryptocoryne-wendtii-green-gecko",
+    "scientificName": "Cryptocoryne wendtii 'Green Gecko'",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Cryptocoryne",
+     "species": "wendtii",
+     "cultivar": "Green Gecko"
+    },
+    "commonNames": {
+     "en": [
+      "Cryptocoryne wendtii 'Green Gecko'",
+      "Green Gecko crypt"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Sri Lanka (cultivar)"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 40,
+      "max": 90,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 15,
+      "opt": 24,
+      "max": 29
+     },
+     "pH": {
+      "min": 6,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 3,
+      "opt": 8,
+      "max": 15
+     },
+     "kh": {
+      "min": 2,
+      "opt": 5,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 15,
+     "maxSpreadCm": 20,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "midground"
+    ],
+    "colorRange": [
+     "green",
+     "light-green-wavy"
+    ],
+    "colorHex": "#6a9a3a",
+    "sim": {
+     "k_photosynthesis": 0.35,
+     "k_light": 26,
+     "k_co2": 10,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "rosette",
+     "leafLengthCm": 10,
+     "leafWidthCm": 2.2,
+     "leafDensity": 0.55
+    },
+    "notes": "Flowgrow gives 5-15 cm height and 15-30 C tolerance (optimum 22-26 C); light-green leaves with wavy margins. Prone to crypt melt after changes in light or water.",
+    "images": [],
+    "citations": [
+     "flowgrow-cryptocoryne-wendtii-green-gecko",
+     "aquasabi-cryptocoryne-wendtii-green-gecko",
+     "envelope-estimate-2026",
+     "visual-estimate-2026"
+    ]
+   },
+   "marsilea-hirsuta": {
+    "id": "marsilea-hirsuta",
+    "scientificName": "Marsilea hirsuta",
+    "family": "Marsileaceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Polypodiophyta",
+     "class": "Polypodiopsida",
+     "order": "Salviniales",
+     "family": "Marsileaceae",
+     "genus": "Marsilea",
+     "species": "hirsuta"
+    },
+    "commonNames": {
+     "en": [
+      "Four-leaf clover",
+      "Hairy water clover"
+     ]
+    },
+    "group": "carpeting",
+    "growthForm": "carpeting",
+    "origin": [
+     "Australia"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 60,
+      "max": 150,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 20,
+      "max": 35,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 20,
+      "opt": 24,
+      "max": 28
+     },
+     "pH": {
+      "min": 5.5,
+      "opt": 6.8,
+      "max": 7.5
+     },
+     "gh": {
+      "min": 2,
+      "opt": 6,
+      "max": 15
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 5,
+     "maxSpreadCm": 10,
+     "internodeCm": 1.5,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "foreground"
+    ],
+    "colorRange": [
+     "green"
+    ],
+    "colorHex": "#6ba34a",
+    "sim": {
+     "k_photosynthesis": 0.55,
+     "k_light": 45,
+     "k_co2": 12,
+     "preferred_temp_c": 24,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "round",
+     "arrangement": "creeping",
+     "leafLengthCm": 1.2,
+     "leafWidthCm": 0.9,
+     "leafDensity": 0.9
+    },
+    "notes": "Produces single-lobe leaves under high light/CO2, classic 4-leaf clover under moderate conditions. Slower carpet than Monte Carlo but more forgiving of low-tech tanks. Aquatic fern — propagates via stolons not seeds.",
+    "images": [],
+    "citations": [
+     "tropica-marsilea-hirsuta",
+     "nagalingum-2008-marsilea-phylogeny",
+     "kasselmann-2003-aquariumplants",
+     "vicflora-marsilea-hirsuta"
+    ]
+   },
+   "cryptocoryne-lutea": {
+    "id": "cryptocoryne-lutea",
+    "scientificName": "Cryptocoryne lutea",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Cryptocoryne",
+     "species": "lutea"
+    },
+    "commonNames": {
+     "en": [
+      "Cryptocoryne lutea",
+      "Cryptocoryne walkeri (lutea)"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Sri Lanka"
+    ],
+    "difficulty": 2,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 40,
+      "max": 90,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 25,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 22,
+      "opt": 25,
+      "max": 28
+     },
+     "pH": {
+      "min": 6,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 3,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 1,
+      "opt": 5,
+      "max": 12
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "low"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "slow",
+     "maxHeightCm": 15,
+     "maxSpreadCm": 12,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "midground",
+     "foreground"
+    ],
+    "colorRange": [
+     "green",
+     "brown"
+    ],
+    "colorHex": "#6e7a3c",
+    "sim": {
+     "k_photosynthesis": 0.38,
+     "k_light": 35,
+     "k_co2": 10,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "rosette",
+     "leafLengthCm": 10,
+     "leafWidthCm": 2,
+     "leafDensity": 0.5
+    },
+    "notes": "Small Sri Lankan crypt with narrow, slightly wavy green-to-brownish leaves; 12-15 cm tall, 8-12 cm wide, slow. Sold under both lutea and walkeri names. Prone to 'crypt melt' after relocation - leave undisturbed once rooted and use root tabs.",
+    "images": [],
+    "citations": [
+     "dennerle-cryptocoryne-lutea",
+     "jacobsen-1980-cryptocoryne-srilanka",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "cryptocoryne-beckettii": {
+    "id": "cryptocoryne-beckettii",
+    "scientificName": "Cryptocoryne beckettii",
+    "family": "Araceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Araceae",
+     "genus": "Cryptocoryne",
+     "species": "beckettii"
+    },
+    "commonNames": {
+     "en": [
+      "Beckett's cryptocoryne",
+      "Cryptocoryne beckettii"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Sri Lanka"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 20,
+      "opt": 40,
+      "max": 90,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 0,
+      "opt": 10,
+      "max": 25,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 22,
+      "opt": 25,
+      "max": 28
+     },
+     "pH": {
+      "min": 6,
+      "opt": 6.8,
+      "max": 7.8
+     },
+     "gh": {
+      "min": 2,
+      "opt": 8,
+      "max": 16
+     },
+     "kh": {
+      "min": 1,
+      "opt": 4,
+      "max": 10
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "low",
+      "potassiumDemand": "low"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "low"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "medium",
+     "maxHeightCm": 15,
+     "maxSpreadCm": 15,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "foreground",
+     "midground"
+    ],
+    "colorRange": [
+     "olive-green",
+     "brown"
+    ],
+    "colorHex": "#6e6a3a",
+    "sim": {
+     "k_photosynthesis": 0.5,
+     "k_light": 35,
+     "k_co2": 12,
+     "preferred_temp_c": 25,
+     "temp_tolerance_c": 3.5
+    },
+    "visual": {
+     "leafShape": "lanceolate",
+     "arrangement": "rosette",
+     "leafLengthCm": 10,
+     "leafWidthCm": 2.5,
+     "leafDensity": 0.5
+    },
+    "notes": "Easy, compact crypt with olive-brown crinkled leaves; adapts to low light and low CO2 but melts after being moved. Often confused with C. wendtii and C. undulata.",
+    "images": [],
+    "citations": [
+     "jacobsen-1980-cryptocoryne-srilanka",
+     "kasselmann-2003-aquariumplants",
+     "visual-estimate-2026"
+    ]
+   },
+   "sagittaria-subulata": {
+    "id": "sagittaria-subulata",
+    "scientificName": "Sagittaria subulata",
+    "family": "Alismataceae",
+    "taxonomy": {
+     "kingdom": "Plantae",
+     "phylum": "Tracheophyta",
+     "class": "Liliopsida",
+     "order": "Alismatales",
+     "family": "Alismataceae",
+     "genus": "Sagittaria",
+     "species": "subulata"
+    },
+    "commonNames": {
+     "en": [
+      "Dwarf sagittaria",
+      "Subulate arrowhead",
+      "Dwarf sag"
+     ]
+    },
+    "group": "rosette",
+    "growthForm": "rosette",
+    "origin": [
+     "Eastern North America, Atlantic coast"
+    ],
+    "difficulty": 1,
+    "difficultyLabel": "easy",
+    "envelope": {
+     "light": {
+      "min": 30,
+      "opt": 60,
+      "max": 110,
+      "unit": "µmol/m²/s"
+     },
+     "co2": {
+      "min": 5,
+      "opt": 15,
+      "max": 30,
+      "unit": "ppm"
+     },
+     "temperatureC": {
+      "min": 15,
+      "opt": 22,
+      "max": 28
+     },
+     "pH": {
+      "min": 6,
+      "opt": 7,
+      "max": 8
+     },
+     "gh": {
+      "min": 3,
+      "opt": 8,
+      "max": 18
+     },
+     "kh": {
+      "min": 2,
+      "opt": 5,
+      "max": 14
+     }
+    },
+    "nutrients": {
+     "macros": {
+      "nitrogenDemand": "medium",
+      "phosphorusDemand": "medium",
+      "potassiumDemand": "medium"
+     },
+     "micros": {
+      "ironDemand": "medium",
+      "traceDemand": "medium"
+     },
+     "rootFeeder": true,
+     "waterColumnFeeder": true
+    },
+    "growth": {
+     "rate": "fast",
+     "maxHeightCm": 20,
+     "maxSpreadCm": 25,
+     "internodeCm": null,
+     "propagation": [
+      "runners"
+     ]
+    },
+    "placement": [
+     "foreground",
+     "midground"
+    ],
+    "colorRange": [
+     "green"
+    ],
+    "colorHex": "#5f9f3d",
+    "sim": {
+     "k_photosynthesis": 0.7,
+     "k_light": 45,
+     "k_co2": 12,
+     "preferred_temp_c": 23,
+     "temp_tolerance_c": 4
+    },
+    "visual": {
+     "leafShape": "strap",
+     "arrangement": "rosette",
+     "leafLengthCm": 30,
+     "leafWidthCm": 0.4,
+     "leafDensity": 0.7
+    },
+    "notes": "Hardy ribbon-leaved plant that spreads by runners into a lawn; stays 5-10 cm in strong light but reaches 20+ cm in dim tanks. Tolerates cool water and hard water. Root feeder - benefits from enriched substrate.",
+    "images": [],
+    "citations": [
+     "cook-1996-aquatic-plant-book",
+     "kasselmann-2003-aquariumplants",
+     "nybg-sagittaria-subulata"
+    ]
+   }
+  },
+  "days": 90,
+  "seed": 2653293259,
+  "gridX": 32,
+  "substrate": {
+   "type": "aquasoil",
+   "reserve": 1
+  },
+  "lowLightPar": 30
+ }
+}
