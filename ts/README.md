@@ -41,7 +41,8 @@ transport; it yields to the event loop every `sliceMs` (default 8 ms) so that
 
 Also exported: `Engine` (step-wise driver; `substrateRemaining()` for diagnostics),
 `algo` namespace (the Python ports), `createPrng` (sfc32), `envelopeAxis`,
-`lightEnvelopeAxis` / `LightAxis` (contract 1.2.0 light axis), `canopyTransmission`.
+`lightEnvelopeAxis` / `LightAxis` (contract 1.2.0 light axis), `co2EnvelopeAxis` /
+`Co2Axis` / `co2RateFactor` (contract 1.3.0 CO2 axis and rate factor), `canopyTransmission`.
 
 ## Coordinates & units
 
@@ -78,7 +79,11 @@ ramps from 1 at optMax down to `LIGHT_UPPER_FLOOR` (0.75) at `light.max` and
 stays at 0.75 for any brighter PAR — botany `light.max` is the top of the
 husbandry range, not a lethal limit, so light alone never collapses fitness
 (0.75^(1/6) ≈ 0.95) or melts a plant (aquascape-sim#8). The lower side is the
-plain trapezoid. Fitness = `compat` (geometric mean) over light, co2,
+plain trapezoid. CO2 is a `Co2Axis` (contract 1.3.0): at or below botany
+`co2.min` it scores `CO2_LOWER_FLOOR` (0.6), ramps up to 1 at optMin, and its
+upper side is the plain trapezoid (0 at `co2.max`). Botany `co2.min` is the
+bottom of the recommended range, so CO2 alone never melts a plant
+(0.6^(1/6) ≈ 0.92 fitness; aquascape-sim#11). Fitness = `compat` (geometric mean) over light, co2,
 temperatureC, pH, gh, kh. `algo/envelope.ts` `Axis` stays the 1:1 Python
 port (parity tests); the Python engine has no botany light axis to mirror.
 
@@ -88,12 +93,20 @@ placements, 11 stem species) as built by aquascape-web; `test/light-response.tes
 checks contract `LIGHT_RESPONSE_INVARIANTS` on it at surface PAR 100/200/320
 and CO2 5/25 ppm.
 
+**CO2-response reference.** `test/fixtures/lowtech60.json` is the web app's
+Nature Low tech template on 60×30 with a 32 cm water column (55 placements, 15
+species), built the same way; `test/co2-response.test.ts` checks contract
+`CO2_RESPONSE_INVARIANTS` on it and on Dutch 60-P.
+
 **Growth.** Carrying capacity `bMax = 0.02 g/cm³ · hTarget · π(spread/2)²` with
 `spread = maxSpreadCm · √portions`; plants start at 12 % of it. Daily
-`rgr = 0.12 · k_photosynthesis · piCurve(PAR, 1/k_light, 1) · co2Response(…, k_co2)
+`rgr = 0.12 · k_photosynthesis · piCurve(PAR, 1/k_light, 1) · co2RateFactor(co2Ppm, k_co2)
 · temperatureResponse(T, preferred_temp_c, 2, temp_tolerance_c) · fitness · nutrient
 sufficiency · health · √space · photoperiodH/8 (≤1.5) · jitter(seeded ±8 %)`,
-and biomass grows logistically toward `bMax`. Height/spread follow biomass
+and biomass grows logistically toward `bMax`. `co2RateFactor` is
+`c / (c + k_co2)` with `c = max(co2Ppm, CO2_BASELINE_PPM = 2)` (contract 1.3.0
+`CO2_RATE_RULE`); pH and KH only act through their envelope axes. The pH/KH-based
+`algo.co2Response` remains as the Python parity port but the engine no longer uses it. Height/spread follow biomass
 progress toward the species maxima (stems may reach 1.15 × maxHeight, capped at
 the water surface). Health follows the Python rule (decay when fitness × nutrient
 sufficiency < 0.5, +0.005/day otherwise); low health sheds biomass.
